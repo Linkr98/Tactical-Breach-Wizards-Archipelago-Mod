@@ -1,0 +1,28 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / Rider / VS Code
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.userprefs
+
+# NuGet
+*.nupkg
+packages/
+
+# OS noise
+Thumbs.db
+.DS_Store
+
+#Don't need to upload claude permissions
+./claude
+
+# Notes:
+# - Generated files ApData.cs and tools/ap_data.{json,py} ARE committed on purpose:
+#   they are the frozen id contract (ApData.cs is compiled in; the data files feed the apworld).
+# - tools/tbw_ap_dump.json is the version-controlled generator INPUT (the raw in-game dump).
+# - The built mod DLL lives under bin/ and is intentionally ignored; build it from source.

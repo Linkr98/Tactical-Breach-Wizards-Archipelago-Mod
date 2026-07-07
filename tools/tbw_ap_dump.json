@@ -1,0 +1,4206 @@
+{
+  "_about": "Tactical Breach Wizards Archipelago data dump. Source of truth for item/location IDs.",
+  "modVersion": "0.1.0",
+  "acts": [
+    {
+      "actIndex": 0,
+      "stages": [
+        {
+          "stageID": "Text_Prologue_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "4",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Prologue",
+          "displayName": "The Asset",
+          "type": "Gameplay",
+          "stageData": "Prologue",
+          "endOfCampaign": false,
+          "characterUnlocks": [
+            "NavySeer"
+          ],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Prologue"
+        },
+        {
+          "stageID": "Intro_Title_Logo_Screen",
+          "displayName": "Main Title",
+          "type": "Scene",
+          "stageData": "Starter Building",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "ChapterScreen_1",
+          "displayName": "",
+          "type": "ChapterScreen",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Rushwater_PD_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "4",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_WitchStatementPI",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "2",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_WitchAndChiefCoda",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "2",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Witch_Intro",
+          "displayName": "Rushwater Reunion",
+          "type": "Gameplay",
+          "stageData": "Witch Intro",
+          "endOfCampaign": false,
+          "characterUnlocks": [
+            "WitchCop"
+          ],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Witch Intro"
+        },
+        {
+          "stageID": "Text_Rushwater_Cells_Fading_Title_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "Evidence Boss",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_WitchMeetsNecro",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "2",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Mission_End_Screen_Witch_Intro",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "Starter Building",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_SubwayDebrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "Blacksite 1",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Witch_Intro",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "|WitchCop",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [
+            "WitchCop"
+          ],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Ma's_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_WitchAndSeerAtMas",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "Blacksite 1",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Map_MapStageWitch1",
+          "displayName": "",
+          "type": "Map",
+          "stageData": "MapStageWitch1",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_MasPostMap",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "Blacksite 1",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Evidence_Lockup_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Evidence_Lockup",
+          "displayName": "Out For Blood",
+          "type": "Gameplay",
+          "stageData": "Evidence Lockup",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Evidence Lockup"
+        },
+        {
+          "stageID": "Dlog_ArchivesFoundFile",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "1",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_Morgue",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "1",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_Archives_Boss_Chat",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "Evidence Boss",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Evidence_Boss",
+          "displayName": "The Traffic Warlock",
+          "type": "Gameplay",
+          "stageData": "Evidence Boss",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Evidence Boss"
+        },
+        {
+          "stageID": "Mission_End_Screen_Archives",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "Starter Building",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Evidence_Boss",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_SubwayArchivesDebrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "Starter Building",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Ma's_Location_Card_2",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_WitchMeetsMa",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "Starter Building",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Map_MapStageWitch2",
+          "displayName": "",
+          "type": "Map",
+          "stageData": "MapStageWitch2",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_WitchMeetsMaCoda",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "Starter Building",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        }
+      ]
+    },
+    {
+      "actIndex": 1,
+      "stages": [
+        {
+          "stageID": "ChapterScreen_2",
+          "displayName": "",
+          "type": "ChapterScreen",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Liboli_Ferry_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_FerryBrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_FerryBriefCoda",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Chat_MemorialFlashback",
+          "displayName": "",
+          "type": "ChatUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Dream_Intro_fading_title_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Dream_Intro",
+          "displayName": "Achievable Dreams",
+          "type": "Gameplay",
+          "stageData": "Dream Intro",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Dream Intro"
+        },
+        {
+          "stageID": "SdMsn_Dream2A",
+          "displayName": "Dream 2A and Proving Ground 1",
+          "type": "MissionUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Blacksite_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Liboli_Intro",
+          "displayName": "The Blacksite",
+          "type": "Gameplay",
+          "stageData": "Liboli Intro",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Liboli Intro"
+        },
+        {
+          "stageID": "Dlog_BlacksiteCell",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Liboli_Bar_Night_Fading_Title_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_NecroBar",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Mission_End_Screen_Liboli_Intro",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "SdMsn_Dream2B",
+          "displayName": "",
+          "type": "MissionUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Liboli_Intro",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "|",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_NecroBarCoda",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Liboli_Bar_Morning_Fading_Title_Card_Variant",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_NecroIntroBrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Blacksite_Armoury_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Necro_Intro",
+          "displayName": "The Necromedic",
+          "type": "Gameplay",
+          "stageData": "Necro Intro",
+          "endOfCampaign": false,
+          "characterUnlocks": [
+            "NecroMedic"
+          ],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Necro Intro"
+        },
+        {
+          "stageID": "Mission_End_Screen_Necro_Intro",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Necro_Intro",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "WitchCop,NecroMedic|NecroMedic",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [
+            "WitchCop",
+            "NecroMedic"
+          ],
+          "requiredPerkRecipients": [
+            "NecroMedic"
+          ],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Liboli_Bar_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_MeetingBriefing",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Blacksite_Meet_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_The_Meet",
+          "displayName": "The Meet",
+          "type": "Gameplay",
+          "stageData": "The Meet",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "The Meet"
+        },
+        {
+          "stageID": "Dlog_TheMeet",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Mission_End_Screen_The_Meet",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_The_Meet",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "|WitchCop,NavySeer",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [
+            "WitchCop",
+            "NavySeer"
+          ],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Map_MapStageLiboli1",
+          "displayName": "Map after The Meet",
+          "type": "Map",
+          "stageData": "MapStageLiboli1",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "SdMsn_Dream2C",
+          "displayName": "",
+          "type": "MissionUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_PyroBriefing",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Blacksite_Exit_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Exit_Strategy",
+          "displayName": "Exit Strategy",
+          "type": "Gameplay",
+          "stageData": "Exit Strategy",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Exit Strategy"
+        },
+        {
+          "stageID": "Dlog_PyroAndWarlock",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_The_Pyromancer",
+          "displayName": "The Pyromancer",
+          "type": "Gameplay",
+          "stageData": "The Pyromancer",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "The Pyromancer"
+        },
+        {
+          "stageID": "Mission_End_Screen_The_Pyromancer",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_The_Pyromancer",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "|",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Liboli_Bar_Again_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_Act2Debrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Jen_Dream_fading_title_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Lucid_Dream_Jen",
+          "displayName": "Anxiety Dream: Jen",
+          "type": "Gameplay",
+          "stageData": "Lucid Dream - Jen",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Lucid Dream - Jen"
+        },
+        {
+          "stageID": "Unlock_ChainShockSuperchain",
+          "displayName": "",
+          "type": "PerkUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "SdMsn_Dream2D",
+          "displayName": "SdMsn_Dream2D",
+          "type": "MissionUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        }
+      ]
+    },
+    {
+      "actIndex": 2,
+      "stages": [
+        {
+          "stageID": "ChapterScreen_3",
+          "displayName": "",
+          "type": "ChapterScreen",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_TrainBrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Kalan_train_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Train",
+          "displayName": "Basic Training",
+          "type": "Gameplay",
+          "stageData": "Train",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Train"
+        },
+        {
+          "stageID": "Mission_End_Screen_Kalan_Arrival",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Kalan_Streets_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Streets",
+          "displayName": "Lockdown",
+          "type": "Gameplay",
+          "stageData": "Streets",
+          "endOfCampaign": false,
+          "characterUnlocks": [
+            "RiotPriest"
+          ],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Streets"
+        },
+        {
+          "stageID": "Mission_End_Screen_Kalan_Streets",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Kalan_Underground_fading_title_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_StreetsDebrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Streets",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "|RiotPriest",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [
+            "RiotPriest"
+          ],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_TheRecordingBrief1",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_TheRecordingBrief2",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_TheRecordingBrief3",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_TheRecordingBrief4",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_The_Recording_Mission_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_The_Recording",
+          "displayName": "The Recording",
+          "type": "Gameplay",
+          "stageData": "The Recording",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "The Recording"
+        },
+        {
+          "stageID": "Mission_End_Screen_The_Recording",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_The_Recording",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "|WitchCop",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [
+            "WitchCop"
+          ],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_The_Recording_itself_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_TheRecordingItself",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_TheRecordingDebrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_TheRecordingCheers",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Map_MapStageKalan1",
+          "displayName": "",
+          "type": "Map",
+          "stageData": "MapStageKalan1",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Chat_BanksKalan",
+          "displayName": "",
+          "type": "ChatUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "SdMsn_Dream3B",
+          "displayName": "Dream 3B (Recording) Unlock",
+          "type": "MissionUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "ChapterScreen_4",
+          "displayName": "",
+          "type": "ChapterScreen",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Broadcast_Briefing_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_BroadcastBrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Broadcast_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_BroadcastTeamsMeet",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_BroadcastTeamsPairOff",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Broadcast_fading_title_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_The_Broadcast",
+          "displayName": "The B Team",
+          "type": "Gameplay",
+          "stageData": "The Broadcast",
+          "endOfCampaign": false,
+          "characterUnlocks": [
+            "RiotPriest"
+          ],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "The Broadcast"
+        },
+        {
+          "stageID": "Dlog_BroadcastBeforeEavesdrop",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Eavesdrop_Fading_Title_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_BroadcastJenEavesdrops",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_After_Eavesdrop_Fading_Title_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Siege_Cleric",
+          "displayName": "The Siege Cleric",
+          "type": "Gameplay",
+          "stageData": "Siege Cleric",
+          "endOfCampaign": false,
+          "characterUnlocks": [
+            "Druid"
+          ],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Siege Cleric"
+        },
+        {
+          "stageID": "Mission_End_Screen_The_Broadcast",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Siege_Cleric",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "WitchCop,NavySeer,NecroMedic,RiotPriest,Druid",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [
+            "WitchCop",
+            "NavySeer",
+            "NecroMedic",
+            "RiotPriest",
+            "Druid"
+          ],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_BroadcastDebrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "SdMsn_Dream3C",
+          "displayName": "Dream 3C (Cleric) Unlock",
+          "type": "MissionUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_ZanDecidesToMeetLiv",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_ZanMeetsLiv",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Flashback",
+          "displayName": "Setting Jodasa Straight",
+          "type": "Gameplay",
+          "stageData": "Flashback",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Flashback"
+        },
+        {
+          "stageID": "Dlog_ZanMeetsLivAfterFlashback",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Ambush_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Kalan_Ambush",
+          "displayName": "Kennedy Calls",
+          "type": "Gameplay",
+          "stageData": "Kalan Ambush",
+          "endOfCampaign": false,
+          "characterUnlocks": [
+            "Druid"
+          ],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Kalan Ambush"
+        },
+        {
+          "stageID": "Dlog_AmbushInterlude",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Kalan_Ambush_2",
+          "displayName": "Cornered",
+          "type": "Gameplay",
+          "stageData": "Kalan Ambush 2",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Kalan Ambush 2"
+        },
+        {
+          "stageID": "Text_Banks_Dream_fading_title_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Lucid_Dream_Banks",
+          "displayName": "Death's Door",
+          "type": "Gameplay",
+          "stageData": "Lucid Dream - Banks",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Lucid Dream - Banks"
+        },
+        {
+          "stageID": "Unlock_DeathsFloor",
+          "displayName": "",
+          "type": "PerkUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_BanksEmerges",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Lucid_Dream_Banks",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "|",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Jen_Solves_Sickness_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_JenSolvesSickness",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Map_MapStageKalan2",
+          "displayName": "",
+          "type": "Map",
+          "stageData": "MapStageKalan2",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_Act3Debrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Act_3_Beta_End_Screen",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        }
+      ]
+    },
+    {
+      "actIndex": 3,
+      "stages": [
+        {
+          "stageID": "ChapterScreen_5",
+          "displayName": "",
+          "type": "ChapterScreen",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Medil_Boat_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_1BoatToMedil",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Medil_TRAIN_Location_Card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_1MeetMilitia",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_1TwoTrainsBrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Two_Trains",
+          "displayName": "Advanced Training",
+          "type": "Gameplay",
+          "stageData": "Two Trains",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Two Trains"
+        },
+        {
+          "stageID": "Mission_End_Screen_Two_Trains",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_1TwoTrainsDebrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Two_Trains",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "|",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Dall_Dream_fading_title_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Lucid_Dream_Dall",
+          "displayName": "Anxiety Dream: Dall",
+          "type": "Gameplay",
+          "stageData": "Lucid Dream - Dall",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Lucid Dream - Dall"
+        },
+        {
+          "stageID": "Unlock_SwapWithoutLOS",
+          "displayName": "",
+          "type": "PerkUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Medil_OSPREY_location_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_2OspreyBrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Fort_Osprey",
+          "displayName": "Fort Osprey",
+          "type": "Gameplay",
+          "stageData": "Fort Osprey",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Fort Osprey"
+        },
+        {
+          "stageID": "Mission_End_Screen_Fort_Osprey",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Fort_Osprey",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_2OspreyDebrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Map_MapStageMedil1",
+          "displayName": "",
+          "type": "Map",
+          "stageData": "MapStageMedil1",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Rion_Dream_fading_title_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Lucid_Dream_Rion",
+          "displayName": "Anxiety Dream: Rion",
+          "type": "Gameplay",
+          "stageData": "Lucid Dream - Rion",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Lucid Dream - Rion"
+        },
+        {
+          "stageID": "Unlock_SporeIntelligent",
+          "displayName": "",
+          "type": "PerkUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Chat_RionDog",
+          "displayName": "",
+          "type": "ChatUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Medil_VILLA_location_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_3VillaBrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Villa_Medil",
+          "displayName": "Villa Medil",
+          "type": "Gameplay",
+          "stageData": "Villa Medil",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Villa Medil"
+        },
+        {
+          "stageID": "Mission_End_Screen_Villa_Medil",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Villa_Medil",
+          "displayName": "",
+          "type": "Perks",
+          "stageData": "|",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Zan_Dream_fading_title_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Lucid_Dream_Zan",
+          "displayName": "Anxiety Dream: Zan",
+          "type": "Gameplay",
+          "stageData": "Lucid Dream - Zan",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Lucid Dream - Zan"
+        },
+        {
+          "stageID": "Unlock_SeerFinaleKnockBackDummy",
+          "displayName": "",
+          "type": "PerkUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Chat_ZanDreamDebrief",
+          "displayName": "",
+          "type": "ChatUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Medil_VILLA_planning_location_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_4FinaleBrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Perk_Lucid_Dream_Zan",
+          "displayName": "Perk before finale",
+          "type": "Perks",
+          "stageData": "|",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Text_Medil_MINES_location_card",
+          "displayName": "",
+          "type": "TitleCard",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Finale_Overview_Vault",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Finale_Vault",
+          "displayName": "Counterheist: The Vault",
+          "type": "Gameplay",
+          "stageData": "Finale - Vault",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Finale - Vault"
+        },
+        {
+          "stageID": "Finale_Overview_Mines",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Finale_Mines",
+          "displayName": "Counterheist: The Mines",
+          "type": "Gameplay",
+          "stageData": "Finale - Mines",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Finale - Mines"
+        },
+        {
+          "stageID": "Finale_Overview_Roof",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Game_Finale_Roof",
+          "displayName": "Counterheist: The Roof",
+          "type": "Gameplay",
+          "stageData": "Finale - Roof",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": "Finale - Roof"
+        },
+        {
+          "stageID": "Dlog_4FinaleBanksShoots",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "ChapterScreen_6",
+          "displayName": "",
+          "type": "ChapterScreen",
+          "stageData": "",
+          "endOfCampaign": true,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_4FinaleDebrief",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Credits_Roll",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_5Ending2JenBanks",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Map_MapCredits1",
+          "displayName": "",
+          "type": "MapCredits",
+          "stageData": "MapCredits1",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Credits_Roll_2",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_5Ending3DallRion",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Map_MapCredits2",
+          "displayName": "",
+          "type": "MapCredits",
+          "stageData": "MapCredits2",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Credits_Roll_3",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_5Ending5ZanLivDead",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_5Ending5ZanLivAlive",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Map_MapCredits3",
+          "displayName": "",
+          "type": "MapCredits",
+          "stageData": "MapCredits3",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Credits_Roll_4",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Dlog_5Ending4Steve",
+          "displayName": "",
+          "type": "Dialog",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "Credits_Roll_5",
+          "displayName": "",
+          "type": "Scene",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        },
+        {
+          "stageID": "SdMsn_3ProvingGroundsUnlock",
+          "displayName": "3 Proving Grounds",
+          "type": "MissionUnlock",
+          "stageData": "",
+          "endOfCampaign": false,
+          "characterUnlocks": [],
+          "perkPointRecipients": [],
+          "requiredPerkRecipients": [],
+          "buildingFolder": ""
+        }
+      ]
+    }
+  ],
+  "confidenceGoals": [
+    {
+      "level": "Evidence Lockup/1 Lobby.lvl",
+      "levelFolder": "Evidence Lockup",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Evidence Lockup/1 Lobby.lvl",
+      "levelFolder": "Evidence Lockup",
+      "goalName": "DefenestrateWithGaleGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Evidence Lockup/2 Pillars.lvl",
+      "levelFolder": "Evidence Lockup",
+      "goalName": "ClearEnemiesByTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Evidence Lockup/2 Pillars.lvl",
+      "levelFolder": "Evidence Lockup",
+      "goalName": "SingleWizardActionsInOneTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Evidence Lockup/3 Corridors.lvl",
+      "levelFolder": "Evidence Lockup",
+      "goalName": "DefenestrateInOneTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Evidence Lockup/3 Corridors.lvl",
+      "levelFolder": "Evidence Lockup",
+      "goalName": "PredictiveShotGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Evidence Boss/1 The Traffic Warlock.lvl",
+      "levelFolder": "Evidence Boss",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Evidence Boss/1 The Traffic Warlock.lvl",
+      "levelFolder": "Evidence Boss",
+      "goalName": "DefenestrateWarlockGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream Intro/1 Warlock.lvl",
+      "levelFolder": "Dream Intro",
+      "goalName": "DefenestrateInOneTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Liboli Intro/1 Twin Turrets.lvl",
+      "levelFolder": "Liboli Intro",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Liboli Intro/1 Twin Turrets.lvl",
+      "levelFolder": "Liboli Intro",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Liboli Intro/2 Mainframe.lvl",
+      "levelFolder": "Liboli Intro",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Liboli Intro/2 Mainframe.lvl",
+      "levelFolder": "Liboli Intro",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Liboli Intro/3 Heavy Duty.lvl",
+      "levelFolder": "Liboli Intro",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Liboli Intro/3 Heavy Duty.lvl",
+      "levelFolder": "Liboli Intro",
+      "goalName": "PredictiveShotGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Liboli Intro/4 The Cell.lvl",
+      "levelFolder": "Liboli Intro",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Liboli Intro/4 The Cell.lvl",
+      "levelFolder": "Liboli Intro",
+      "goalName": "PredictiveShotGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Necro Intro/1 Intro.lvl",
+      "levelFolder": "Necro Intro",
+      "goalName": "DeathsDoorTotalGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Necro Intro/1 Intro.lvl",
+      "levelFolder": "Necro Intro",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Necro Intro/2 Lead Medicine.lvl",
+      "levelFolder": "Necro Intro",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Necro Intro/3 Broom Breach.lvl",
+      "levelFolder": "Necro Intro",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Necro Intro/3 Broom Breach.lvl",
+      "levelFolder": "Necro Intro",
+      "goalName": "DeathsDoorTotalGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Meet/1 Spectral Skull.lvl",
+      "levelFolder": "The Meet",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Meet/1 Spectral Skull.lvl",
+      "levelFolder": "The Meet",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Meet/1 Spectral Skull.lvl",
+      "levelFolder": "The Meet",
+      "goalName": "AbilitiesInOneTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Meet/2 Officers.lvl",
+      "levelFolder": "The Meet",
+      "goalName": "ClearEnemiesByTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Meet/2 Officers.lvl",
+      "levelFolder": "The Meet",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Meet/3 Reaching The Meet.lvl",
+      "levelFolder": "The Meet",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Meet/3 Reaching The Meet.lvl",
+      "levelFolder": "The Meet",
+      "goalName": "ScapegoatDamageGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Exit Strategy/1 Entry Strategy.lvl",
+      "levelFolder": "Exit Strategy",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Exit Strategy/1 Entry Strategy.lvl",
+      "levelFolder": "Exit Strategy",
+      "goalName": "AbilitiesInOneTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Exit Strategy/2 Heavies.lvl",
+      "levelFolder": "Exit Strategy",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Exit Strategy/2 Heavies.lvl",
+      "levelFolder": "Exit Strategy",
+      "goalName": "UnsteadyKnockbackGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Exit Strategy/2 Heavies.lvl",
+      "levelFolder": "Exit Strategy",
+      "goalName": "SingleWizardActionsInOneTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Exit Strategy/3 Neutralisers.lvl",
+      "levelFolder": "Exit Strategy",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Exit Strategy/3 Neutralisers.lvl",
+      "levelFolder": "Exit Strategy",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Exit Strategy/3 Neutralisers.lvl",
+      "levelFolder": "Exit Strategy",
+      "goalName": "ScapegoatDamageGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Exit Strategy/4 Junction.lvl",
+      "levelFolder": "Exit Strategy",
+      "goalName": "DefenestrateInOneTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Exit Strategy/4 Junction.lvl",
+      "levelFolder": "Exit Strategy",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Pyromancer/1 The Less Lethal Pyromancer.lvl",
+      "levelFolder": "The Pyromancer",
+      "goalName": "DeathsDoorWarlockGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Pyromancer/1 The Less Lethal Pyromancer.lvl",
+      "levelFolder": "The Pyromancer",
+      "goalName": "AbilitiesInOneTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Pyromancer/1 The Less Lethal Pyromancer.lvl",
+      "levelFolder": "The Pyromancer",
+      "goalName": "ResurrectAllyGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Jen/1 Backdoor.lvl",
+      "levelFolder": "Lucid Dream - Jen",
+      "goalName": "DefenestrateInOneTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Jen/2 No Problem.lvl",
+      "levelFolder": "Lucid Dream - Jen",
+      "goalName": "DefenestratePercentageGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Jen/3 High Achiever.lvl",
+      "levelFolder": "Lucid Dream - Jen",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Jen/4 Another Steve.lvl",
+      "levelFolder": "Lucid Dream - Jen",
+      "goalName": "WarlockKillWarlockGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Train/1 On Board.lvl",
+      "levelFolder": "Train",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Train/1 On Board.lvl",
+      "levelFolder": "Train",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Train/2 Sappers.lvl",
+      "levelFolder": "Train",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Train/3 The Shepherd.lvl",
+      "levelFolder": "Train",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Train/3 The Shepherd.lvl",
+      "levelFolder": "Train",
+      "goalName": "UnsteadyKnockbackGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Train/4 Terminal.lvl",
+      "levelFolder": "Train",
+      "goalName": "DefenestrateInOneTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Train/5 The Riot Priest.lvl",
+      "levelFolder": "Train",
+      "goalName": "DeathsDoorTotalGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Train/5 The Riot Priest.lvl",
+      "levelFolder": "Train",
+      "goalName": "AllWizardsAliveGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Train/5 The Riot Priest.lvl",
+      "levelFolder": "Train",
+      "goalName": "DefenestrateInOneTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Streets/1 Downtown.lvl",
+      "levelFolder": "Streets",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Streets/1 Downtown.lvl",
+      "levelFolder": "Streets",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Streets/1 Downtown.lvl",
+      "levelFolder": "Streets",
+      "goalName": "NoEnemiesFireGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Streets/2 Curfew.lvl",
+      "levelFolder": "Streets",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Streets/2 Curfew.lvl",
+      "levelFolder": "Streets",
+      "goalName": "DefenestrateInOneTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Streets/2 Curfew.lvl",
+      "levelFolder": "Streets",
+      "goalName": "PriestTotalKnockbackGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Streets/3 Going To Ground.lvl",
+      "levelFolder": "Streets",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Streets/3 Going To Ground.lvl",
+      "levelFolder": "Streets",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Streets/3 Going To Ground.lvl",
+      "levelFolder": "Streets",
+      "goalName": "ChargeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/1 The Golden Arms.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/1 The Golden Arms.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "DestroyMoreCachesGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/1 The Golden Arms.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "ClearEnemiesByTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/2 Protection Ring.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/2 Protection Ring.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "DefenestrateInOneTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/2 Protection Ring.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "AbilitiesInOneTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/3 The Dead Drop.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "DestroyCachesByTurnGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/4 The Stand.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "SurviveTurnsConfidenceGoalNavySeer",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/4 The Stand.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "SurviveTurnsConfidenceGoalWitchCop",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/4 The Stand.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "SurviveTurnsConfidenceGoalNecroMedic",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Recording/4 The Stand.lvl",
+      "levelFolder": "The Recording",
+      "goalName": "SurviveTurnsConfidenceGoalRiotPriest",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/1 Heavy Backup.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/1 Heavy Backup.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "DestroyMoreCachesGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/2 Tipping Point.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "ScapegoatDamageGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/2 Tipping Point.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "WitchTotalKnockbackGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/3 Firewall.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/3 Firewall.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "HitRiotBlockGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/4 Caught In Traffic.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/4 Caught In Traffic.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "ScapegoatDamageGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/5 The Armoury.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "DestroyCachesByTurnGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/5 The Armoury.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "AllWizardsAliveGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/5 The Armoury.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "ResurrectEnemiesGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "The Broadcast/5 The Armoury.lvl",
+      "levelFolder": "The Broadcast",
+      "goalName": "ClearEnemiesByTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Siege Cleric/1 The Siege Cleric.lvl",
+      "levelFolder": "Siege Cleric",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Siege Cleric/1 The Siege Cleric.lvl",
+      "levelFolder": "Siege Cleric",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Siege Cleric/1 The Siege Cleric.lvl",
+      "levelFolder": "Siege Cleric",
+      "goalName": "PriestTotalKnockbackGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Siege Cleric/2 The Other Three Siege Clerics.lvl",
+      "levelFolder": "Siege Cleric",
+      "goalName": "ResurrectAllyGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Siege Cleric/2 The Other Three Siege Clerics.lvl",
+      "levelFolder": "Siege Cleric",
+      "goalName": "TotalBrittleDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Kalan Ambush/1 Tick Tock.lvl",
+      "levelFolder": "Kalan Ambush",
+      "goalName": "ScapegoatDamageGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Kalan Ambush/1 Tick Tock.lvl",
+      "levelFolder": "Kalan Ambush",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Kalan Ambush/1 Tick Tock.lvl",
+      "levelFolder": "Kalan Ambush",
+      "goalName": "OnlyDallTakeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Banks/3 The Kill Zone.lvl",
+      "levelFolder": "Lucid Dream - Banks",
+      "goalName": "ScapegoatDamageGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Banks/4 Circle Of Death.lvl",
+      "levelFolder": "Lucid Dream - Banks",
+      "goalName": "DefenestrateWithPullGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Banks/4 Circle Of Death.lvl",
+      "levelFolder": "Lucid Dream - Banks",
+      "goalName": "PriestTotalKnockbackGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Banks/4 Circle Of Death.lvl",
+      "levelFolder": "Lucid Dream - Banks",
+      "goalName": "UnsteadyKnockbackGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Banks/5 Resurrection Race.lvl",
+      "levelFolder": "Lucid Dream - Banks",
+      "goalName": "DeathsDoorTotalGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Two Trains/1 Gangway.lvl",
+      "levelFolder": "Two Trains",
+      "goalName": "BroomDefenestrationGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Two Trains/1 Gangway.lvl",
+      "levelFolder": "Two Trains",
+      "goalName": "SporeBombDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Two Trains/2 Barrier Drones.lvl",
+      "levelFolder": "Two Trains",
+      "goalName": "ClearEnemiesByTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Two Trains/2 Barrier Drones.lvl",
+      "levelFolder": "Two Trains",
+      "goalName": "SporeBombDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Two Trains/3 Chasers.lvl",
+      "levelFolder": "Two Trains",
+      "goalName": "ScapegoatDamageGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Two Trains/3 Chasers.lvl",
+      "levelFolder": "Two Trains",
+      "goalName": "RabidDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Two Trains/4 Sabotage.lvl",
+      "levelFolder": "Two Trains",
+      "goalName": "PlantBombByEndOfTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Two Trains/4 Sabotage.lvl",
+      "levelFolder": "Two Trains",
+      "goalName": "ChargeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Two Trains/5 Countdown.lvl",
+      "levelFolder": "Two Trains",
+      "goalName": "PriestTotalKnockbackGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Two Trains/5 Countdown.lvl",
+      "levelFolder": "Two Trains",
+      "goalName": "DefenestrateBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Dall/1 Blind Faith.lvl",
+      "levelFolder": "Lucid Dream - Dall",
+      "goalName": "FinishBeforeTurnGoalPriest",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Dall/2 The Hotspot.lvl",
+      "levelFolder": "Lucid Dream - Dall",
+      "goalName": "SwapPanicShotGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Dall/3 Tunnel Rats.lvl",
+      "levelFolder": "Lucid Dream - Dall",
+      "goalName": "RiotBlockDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Dall/4 Unstoppable Force.lvl",
+      "levelFolder": "Lucid Dream - Dall",
+      "goalName": "DontSealDoorsGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Fort Osprey/1 Empty Coffins.lvl",
+      "levelFolder": "Fort Osprey",
+      "goalName": "NoEnemiesFireGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Fort Osprey/1 Empty Coffins.lvl",
+      "levelFolder": "Fort Osprey",
+      "goalName": "SporeBombDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Fort Osprey/2 Cold Storage.lvl",
+      "levelFolder": "Fort Osprey",
+      "goalName": "GlobbedDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Fort Osprey/2 Cold Storage.lvl",
+      "levelFolder": "Fort Osprey",
+      "goalName": "PriestTotalKnockbackGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Fort Osprey/3 Shield Generators.lvl",
+      "levelFolder": "Fort Osprey",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Fort Osprey/3 Shield Generators.lvl",
+      "levelFolder": "Fort Osprey",
+      "goalName": "ScapegoatDamageGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Fort Osprey/4 Fortified.lvl",
+      "levelFolder": "Fort Osprey",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Fort Osprey/4 Fortified.lvl",
+      "levelFolder": "Fort Osprey",
+      "goalName": "AbilitiesInOneTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Fort Osprey/4 Fortified.lvl",
+      "levelFolder": "Fort Osprey",
+      "goalName": "SporeBombDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Rion/1 The Pit.lvl",
+      "levelFolder": "Lucid Dream - Rion",
+      "goalName": "DefenestrateWithPullGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Rion/2 Arguably You Let The Dogs Out.lvl",
+      "levelFolder": "Lucid Dream - Rion",
+      "goalName": "RabidDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Rion/3 Anger Management.lvl",
+      "levelFolder": "Lucid Dream - Rion",
+      "goalName": "SporeBombDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Villa Medil/1 Split Focus.lvl",
+      "levelFolder": "Villa Medil",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Villa Medil/1 Split Focus.lvl",
+      "levelFolder": "Villa Medil",
+      "goalName": "DefenestrateWithPullGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Villa Medil/2 Locked Out.lvl",
+      "levelFolder": "Villa Medil",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Villa Medil/3 Desk Job.lvl",
+      "levelFolder": "Villa Medil",
+      "goalName": "ScapegoatDamageGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Villa Medil/3 Desk Job.lvl",
+      "levelFolder": "Villa Medil",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Villa Medil/4 Time Pressure.lvl",
+      "levelFolder": "Villa Medil",
+      "goalName": "DontSealDoorsGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Villa Medil/4 Time Pressure.lvl",
+      "levelFolder": "Villa Medil",
+      "goalName": "ClearEnemiesByTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Villa Medil/5 The Stone Table.lvl",
+      "levelFolder": "Villa Medil",
+      "goalName": "SporeBombDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Villa Medil/5 The Stone Table.lvl",
+      "levelFolder": "Villa Medil",
+      "goalName": "OnlyDallTakeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Villa Medil/5 The Stone Table.lvl",
+      "levelFolder": "Villa Medil",
+      "goalName": "SedativeDamageGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Zan/1 Unsupportive Fire.lvl",
+      "levelFolder": "Lucid Dream - Zan",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Zan/2 Beam Flower.lvl",
+      "levelFolder": "Lucid Dream - Zan",
+      "goalName": "FinishBeforeTurnGoalSeer",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Zan/3 Mind Maze.lvl",
+      "levelFolder": "Lucid Dream - Zan",
+      "goalName": "SingleWizardActionsInOneTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Lucid Dream - Zan/4 Bad Zan.lvl",
+      "levelFolder": "Lucid Dream - Zan",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Finale - Vault/1 The Gold Vault.lvl",
+      "levelFolder": "Finale - Vault",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Finale - Vault/1 The Gold Vault.lvl",
+      "levelFolder": "Finale - Vault",
+      "goalName": "ChargeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Finale - Vault/2 The Drop.lvl",
+      "levelFolder": "Finale - Vault",
+      "goalName": "DontKillWarlockGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Finale - Vault/2 The Drop.lvl",
+      "levelFolder": "Finale - Vault",
+      "goalName": "RiotBlockDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Finale - Mines/1 Dust To Dust.lvl",
+      "levelFolder": "Finale - Mines",
+      "goalName": "DeathsFloorDistanceGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Finale - Mines/1 Dust To Dust.lvl",
+      "levelFolder": "Finale - Mines",
+      "goalName": "RabidBiteDistanceGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Finale - Mines/2 The Motherlode.lvl",
+      "levelFolder": "Finale - Mines",
+      "goalName": "SaveAlliesBanksGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Finale - Mines/2 The Motherlode.lvl",
+      "levelFolder": "Finale - Mines",
+      "goalName": "TotalBrittleDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Finale - Roof/1 Vesker s Landing.lvl",
+      "levelFolder": "Finale - Roof",
+      "goalName": "FinishBeforeTurnGoalSeer",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Finale - Roof/2 The Black Ops Chronomancer.lvl",
+      "levelFolder": "Finale - Roof",
+      "goalName": "PredictiveShotFinaleGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": true
+    },
+    {
+      "level": "Finale - Roof/2 The Black Ops Chronomancer.lvl",
+      "levelFolder": "Finale - Roof",
+      "goalName": "ScapegoatFinaleGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": true
+    },
+    {
+      "level": "Finale - Roof/2 The Black Ops Chronomancer.lvl",
+      "levelFolder": "Finale - Roof",
+      "goalName": "SporeBombFinaleGoal",
+      "character": "Druid",
+      "isFinaleGoal": true
+    },
+    {
+      "level": "Finale - Roof/2 The Black Ops Chronomancer.lvl",
+      "levelFolder": "Finale - Roof",
+      "goalName": "ChainShockFinaleGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": true
+    },
+    {
+      "level": "Finale - Roof/2 The Black Ops Chronomancer.lvl",
+      "levelFolder": "Finale - Roof",
+      "goalName": "SwapFinaleGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": true
+    },
+    {
+      "level": "Dream 2A/1 Zans Corridor.lvl",
+      "levelFolder": "Dream 2A",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2A/2 Zan Backup.lvl",
+      "levelFolder": "Dream 2A",
+      "goalName": "PredictiveShotGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2A/3 Witchstorm.lvl",
+      "levelFolder": "Dream 2A",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2A/4 Whackadoor.lvl",
+      "levelFolder": "Dream 2A",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2A/4 Whackadoor.lvl",
+      "levelFolder": "Dream 2A",
+      "goalName": "DefenestrateBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 1/1 The Clinic.lvl",
+      "levelFolder": "Proving Ground 1",
+      "goalName": "ProvingGroundsCondidenceGoalNavySeer",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 1/1 The Clinic.lvl",
+      "levelFolder": "Proving Ground 1",
+      "goalName": "ProvingGroundsCondidenceGoalWitchCop",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 1/1 The Clinic.lvl",
+      "levelFolder": "Proving Ground 1",
+      "goalName": "ProvingGroundsCondidenceGoalNecroMedic",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 1/1 The Clinic.lvl",
+      "levelFolder": "Proving Ground 1",
+      "goalName": "ProvingGroundsCondidenceGoalRiotPriest",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 1/1 The Clinic.lvl",
+      "levelFolder": "Proving Ground 1",
+      "goalName": "ProvingGroundsCondidenceGoalDruid",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2B/1 Deconstruction.lvl",
+      "levelFolder": "Dream 2B",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2B/1 Deconstruction.lvl",
+      "levelFolder": "Dream 2B",
+      "goalName": "SingleWizardActionsInOneTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2B/2 Go Jen.lvl",
+      "levelFolder": "Dream 2B",
+      "goalName": "NoEnemiesFireGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2B/2 Go Jen.lvl",
+      "levelFolder": "Dream 2B",
+      "goalName": "WitchTotalKnockbackGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2B/3 Barrels o Fun.lvl",
+      "levelFolder": "Dream 2B",
+      "goalName": "AllWizardsAliveGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2B/3 Barrels o Fun.lvl",
+      "levelFolder": "Dream 2B",
+      "goalName": "DefenestrateBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2B/4 The Grid.lvl",
+      "levelFolder": "Dream 2B",
+      "goalName": "AbilitiesInOneTurnGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2B/4 The Grid.lvl",
+      "levelFolder": "Dream 2B",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2C/1  Ten Men.lvl",
+      "levelFolder": "Dream 2C",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2C/1  Ten Men.lvl",
+      "levelFolder": "Dream 2C",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2C/2 Double Dessa.lvl",
+      "levelFolder": "Dream 2C",
+      "goalName": "DeathsDoorTotalGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2C/3 Turret Parallel.lvl",
+      "levelFolder": "Dream 2C",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2C/3 Turret Parallel.lvl",
+      "levelFolder": "Dream 2C",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2C/3 Turret Parallel.lvl",
+      "levelFolder": "Dream 2C",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2D/1 Panic Rooms.lvl",
+      "levelFolder": "Dream 2D",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2D/1 Panic Rooms.lvl",
+      "levelFolder": "Dream 2D",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2D/3 The Race.lvl",
+      "levelFolder": "Dream 2D",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2D/3 The Race.lvl",
+      "levelFolder": "Dream 2D",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2D/3 The Race.lvl",
+      "levelFolder": "Dream 2D",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2D/4 Fire Closet.lvl",
+      "levelFolder": "Dream 2D",
+      "goalName": "ClearEnemiesByTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2D/4 Fire Closet.lvl",
+      "levelFolder": "Dream 2D",
+      "goalName": "ResurrectEnemiesGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 2D/4 Fire Closet.lvl",
+      "levelFolder": "Dream 2D",
+      "goalName": "AllWizardsAliveGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3B/1 Judas Priests.lvl",
+      "levelFolder": "Dream 3B",
+      "goalName": "ClearEnemiesByTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3B/1 Judas Priests.lvl",
+      "levelFolder": "Dream 3B",
+      "goalName": "ResurrectEnemiesGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3B/1 Judas Priests.lvl",
+      "levelFolder": "Dream 3B",
+      "goalName": "TakeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3B/2 Armoured Escort.lvl",
+      "levelFolder": "Dream 3B",
+      "goalName": "OnlyDallTakeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3B/2 Armoured Escort.lvl",
+      "levelFolder": "Dream 3B",
+      "goalName": "DeathsDoorTotalGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3B/3 Three Doors.lvl",
+      "levelFolder": "Dream 3B",
+      "goalName": "GhostShotHitGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3B/3 Three Doors.lvl",
+      "levelFolder": "Dream 3B",
+      "goalName": "OnlyDallTakeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3C/1 The Cavalry.lvl",
+      "levelFolder": "Dream 3C",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3C/1 The Cavalry.lvl",
+      "levelFolder": "Dream 3C",
+      "goalName": "DontSealDoorsGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3C/2 Reactor Recruiter.lvl",
+      "levelFolder": "Dream 3C",
+      "goalName": "ResurrectEnemiesGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3C/2 Reactor Recruiter.lvl",
+      "levelFolder": "Dream 3C",
+      "goalName": "RabidDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3C/3 Push and Pull.lvl",
+      "levelFolder": "Dream 3C",
+      "goalName": "DefenestratePercentageGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 3C/3 Push and Pull.lvl",
+      "levelFolder": "Dream 3C",
+      "goalName": "DefenestrateWithPullGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 2/1 The Cooker.lvl",
+      "levelFolder": "Proving Ground 2",
+      "goalName": "ProvingGroundsCondidenceGoalNavySeer",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 2/1 The Cooker.lvl",
+      "levelFolder": "Proving Ground 2",
+      "goalName": "ProvingGroundsCondidenceGoalWitchCop",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 2/1 The Cooker.lvl",
+      "levelFolder": "Proving Ground 2",
+      "goalName": "ProvingGroundsCondidenceGoalNecroMedic",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 2/1 The Cooker.lvl",
+      "levelFolder": "Proving Ground 2",
+      "goalName": "ProvingGroundsCondidenceGoalRiotPriest",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 2/1 The Cooker.lvl",
+      "levelFolder": "Proving Ground 2",
+      "goalName": "ProvingGroundsCondidenceGoalDruid",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 3/1 The Wall.lvl",
+      "levelFolder": "Proving Ground 3",
+      "goalName": "ProvingGroundsCondidenceGoalNavySeer",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 3/1 The Wall.lvl",
+      "levelFolder": "Proving Ground 3",
+      "goalName": "ProvingGroundsCondidenceGoalWitchCop",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 3/1 The Wall.lvl",
+      "levelFolder": "Proving Ground 3",
+      "goalName": "ProvingGroundsCondidenceGoalNecroMedic",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 3/1 The Wall.lvl",
+      "levelFolder": "Proving Ground 3",
+      "goalName": "ProvingGroundsCondidenceGoalRiotPriest",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 3/1 The Wall.lvl",
+      "levelFolder": "Proving Ground 3",
+      "goalName": "ProvingGroundsCondidenceGoalDruid",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 4/1 The Tank.lvl",
+      "levelFolder": "Proving Ground 4",
+      "goalName": "ProvingGroundsCondidenceGoalNavySeer",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 4/1 The Tank.lvl",
+      "levelFolder": "Proving Ground 4",
+      "goalName": "ProvingGroundsCondidenceGoalWitchCop",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 4/1 The Tank.lvl",
+      "levelFolder": "Proving Ground 4",
+      "goalName": "ProvingGroundsCondidenceGoalNecroMedic",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 4/1 The Tank.lvl",
+      "levelFolder": "Proving Ground 4",
+      "goalName": "ProvingGroundsCondidenceGoalRiotPriest",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Proving Ground 4/1 The Tank.lvl",
+      "levelFolder": "Proving Ground 4",
+      "goalName": "ProvingGroundsCondidenceGoalDruid",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 4A/1 Tough Cookie.lvl",
+      "levelFolder": "Dream 4A",
+      "goalName": "SporeBombDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 4A/1 Tough Cookie.lvl",
+      "levelFolder": "Dream 4A",
+      "goalName": "PriestTotalKnockbackGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 4A/1 Tough Cookie.lvl",
+      "levelFolder": "Dream 4A",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 4A/2 Rocket Alley.lvl",
+      "levelFolder": "Dream 4A",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 4A/2 Rocket Alley.lvl",
+      "levelFolder": "Dream 4A",
+      "goalName": "TakeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 4A/2 Rocket Alley.lvl",
+      "levelFolder": "Dream 4A",
+      "goalName": "AllWizardsAliveGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 4A/3 Fortress.lvl",
+      "levelFolder": "Dream 4A",
+      "goalName": "PreventReinforcementsGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 4A/3 Fortress.lvl",
+      "levelFolder": "Dream 4A",
+      "goalName": "DontSealDoorsGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream 4A/3 Fortress.lvl",
+      "levelFolder": "Dream 4A",
+      "goalName": "DeathsDoorTotalGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream Heatsig/1 Warlocks in the Airlock.lvl",
+      "levelFolder": "Dream Heatsig",
+      "goalName": "UnsteadyKnockbackGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream Heatsig/1 Warlocks in the Airlock.lvl",
+      "levelFolder": "Dream Heatsig",
+      "goalName": "DontSealDoorsGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream Heatsig/1 Warlocks in the Airlock.lvl",
+      "levelFolder": "Dream Heatsig",
+      "goalName": "DefenestrateWarlockGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream Heatsig/2 Sabotage.lvl",
+      "levelFolder": "Dream Heatsig",
+      "goalName": "ChargeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream Heatsig/2 Sabotage.lvl",
+      "levelFolder": "Dream Heatsig",
+      "goalName": "FinishBeforeTurnGoal",
+      "character": "WitchCop",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream Heatsig/2 Sabotage.lvl",
+      "levelFolder": "Dream Heatsig",
+      "goalName": "GlobbedDamageGoal",
+      "character": "Druid",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream Heatsig/3 Escape Velocity.lvl",
+      "levelFolder": "Dream Heatsig",
+      "goalName": "AllWizardsFullHealthGoal",
+      "character": "NavySeer",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream Heatsig/3 Escape Velocity.lvl",
+      "levelFolder": "Dream Heatsig",
+      "goalName": "TakeDamageGoal",
+      "character": "RiotPriest",
+      "isFinaleGoal": false
+    },
+    {
+      "level": "Dream Heatsig/3 Escape Velocity.lvl",
+      "levelFolder": "Dream Heatsig",
+      "goalName": "ResurrectEnemiesGoal",
+      "character": "NecroMedic",
+      "isFinaleGoal": false
+    }
+  ],
+  "unlockableCharacters": [
+    {
+      "characterName": "NavySeer",
+      "saveName": "NavySeer",
+      "displayName": "Char: NavySeer"
+    },
+    {
+      "characterName": "WitchCop",
+      "saveName": "WitchCop",
+      "displayName": "Char: WitchCop"
+    },
+    {
+      "characterName": "RiotPriest",
+      "saveName": "RiotPriest",
+      "displayName": "Char: RiotPriest"
+    },
+    {
+      "characterName": "NecroMedic",
+      "saveName": "NecroMedic",
+      "displayName": "Char: NecroMedic"
+    },
+    {
+      "characterName": "Druid",
+      "saveName": "Druid",
+      "displayName": "Char: Druid"
+    },
+    {
+      "characterName": "Monk",
+      "saveName": "Monk",
+      "displayName": "Char: Monk"
+    }
+  ],
+  "unlockableMissions": [
+    {
+      "name": "3 Proving Grounds Mission Unlock",
+      "saveName": "Mission3ProvingGroundsMissionUnlock",
+      "displayName": "Mission: 3 Proving Grounds Mission Unlock",
+      "missionFolders": [
+        "Proving Ground 2",
+        "Proving Ground 3",
+        "Proving Ground 4",
+        "Dream 4A",
+        "Dream Heatsig"
+      ]
+    },
+    {
+      "name": "Act4Tests",
+      "saveName": "MissionAct4Tests",
+      "displayName": "Mission: Act4Tests",
+      "missionFolders": [
+        "Dream 2A"
+      ]
+    },
+    {
+      "name": "Dream 2A",
+      "saveName": "MissionDream2A",
+      "displayName": "Mission: Dream 2A",
+      "missionFolders": [
+        "Dream 2A",
+        "Proving Ground 1"
+      ]
+    },
+    {
+      "name": "Dream 2B",
+      "saveName": "MissionDream2B",
+      "displayName": "Mission: Dream 2B",
+      "missionFolders": [
+        "Dream 2B"
+      ]
+    },
+    {
+      "name": "Dream 2C",
+      "saveName": "MissionDream2C",
+      "displayName": "Mission: Dream 2C",
+      "missionFolders": [
+        "Dream 2C"
+      ]
+    },
+    {
+      "name": "Dream 2D",
+      "saveName": "MissionDream2D",
+      "displayName": "Mission: Dream 2D",
+      "missionFolders": [
+        "Dream 2D"
+      ]
+    },
+    {
+      "name": "Dream 3A",
+      "saveName": "MissionDream3A",
+      "displayName": "Mission: Dream 3A",
+      "missionFolders": [
+        "Dream 3A"
+      ]
+    },
+    {
+      "name": "Dream 3B",
+      "saveName": "MissionDream3B",
+      "displayName": "Mission: Dream 3B",
+      "missionFolders": [
+        "Dream 3B"
+      ]
+    },
+    {
+      "name": "Dream 3C",
+      "saveName": "MissionDream3C",
+      "displayName": "Mission: Dream 3C",
+      "missionFolders": [
+        "Dream 3C"
+      ]
+    },
+    {
+      "name": "Dummy",
+      "saveName": "MissionDummy",
+      "displayName": "Mission: Dummy",
+      "missionFolders": [
+        "Dream 2A"
+      ]
+    }
+  ],
+  "unlockableCostumes": [
+    {
+      "saveName": "RiotPriest:2C",
+      "displayName": "Costume: RiotPriest-2C"
+    }
+  ],
+  "unlockableFeatures": [
+    {
+      "saveName": "Map_Panel",
+      "displayName": "Map Panel"
+    },
+    {
+      "saveName": "Mission_Select_Panel",
+      "displayName": "Mission Select Panel"
+    },
+    {
+      "saveName": "Chat_Panel",
+      "displayName": "Chat Panel"
+    }
+  ],
+  "costumesByCharacter": [
+    {
+      "character": "NavySeer",
+      "costumes": [
+        {
+          "saveName": "1A",
+          "displayName": "Desert Camo",
+          "unlockCost": 0,
+          "special": false
+        },
+        {
+          "saveName": "1B",
+          "displayName": "Dark Arts",
+          "unlockCost": 5,
+          "special": false
+        },
+        {
+          "saveName": "1C",
+          "displayName": "Hedge Wizard",
+          "unlockCost": 5,
+          "special": false
+        },
+        {
+          "saveName": "2A",
+          "displayName": "Urban Arcanist",
+          "unlockCost": 10,
+          "special": false
+        },
+        {
+          "saveName": "2B",
+          "displayName": "Full Leather Jacket",
+          "unlockCost": 15,
+          "special": false
+        },
+        {
+          "saveName": "2C",
+          "displayName": "Blackout",
+          "unlockCost": 15,
+          "special": false
+        },
+        {
+          "saveName": "3A",
+          "displayName": "WIZTAC",
+          "unlockCost": 5,
+          "special": true
+        }
+      ]
+    },
+    {
+      "character": "WitchCop",
+      "costumes": [
+        {
+          "saveName": "Freelance",
+          "displayName": "Freelance Witch",
+          "unlockCost": 0,
+          "special": false
+        },
+        {
+          "saveName": "Desert",
+          "displayName": "Desert Detachment",
+          "unlockCost": 5,
+          "special": false
+        },
+        {
+          "saveName": "jungle",
+          "displayName": "Jungle Tracker",
+          "unlockCost": 5,
+          "special": false
+        },
+        {
+          "saveName": "2A",
+          "displayName": "Private Eye",
+          "unlockCost": 15,
+          "special": false
+        },
+        {
+          "saveName": "2B",
+          "displayName": "East Point Nights",
+          "unlockCost": 15,
+          "special": false
+        },
+        {
+          "saveName": "2C",
+          "displayName": "White Witch",
+          "unlockCost": 20,
+          "special": false
+        },
+        {
+          "saveName": "3A",
+          "displayName": "WIZTAC",
+          "unlockCost": 5,
+          "special": true
+        }
+      ]
+    },
+    {
+      "character": "NecroMedic",
+      "costumes": [
+        {
+          "saveName": "1A",
+          "displayName": "Scalpel Sharp",
+          "unlockCost": 0,
+          "special": false
+        },
+        {
+          "saveName": "1B",
+          "displayName": "Funeral Chic",
+          "unlockCost": 4,
+          "special": false
+        },
+        {
+          "saveName": "1C",
+          "displayName": "Frontier Medicine",
+          "unlockCost": 4,
+          "special": false
+        },
+        {
+          "saveName": "2A",
+          "displayName": "Cult Phase",
+          "unlockCost": 8,
+          "special": false
+        },
+        {
+          "saveName": "2B",
+          "displayName": "Med School",
+          "unlockCost": 8,
+          "special": false
+        },
+        {
+          "saveName": "2C",
+          "displayName": "Death M.D.",
+          "unlockCost": 12,
+          "special": false
+        },
+        {
+          "saveName": "3A",
+          "displayName": "WIZTAC",
+          "unlockCost": 4,
+          "special": true
+        }
+      ]
+    },
+    {
+      "character": "RiotPriest",
+      "costumes": [
+        {
+          "saveName": "1A",
+          "displayName": "Defacer",
+          "unlockCost": 0,
+          "special": false
+        },
+        {
+          "saveName": "1B",
+          "displayName": "Roadblock",
+          "unlockCost": 3,
+          "special": false
+        },
+        {
+          "saveName": "1C",
+          "displayName": "Gilded",
+          "unlockCost": 3,
+          "special": false
+        },
+        {
+          "saveName": "2A",
+          "displayName": "Scrapper",
+          "unlockCost": 5,
+          "special": false
+        },
+        {
+          "saveName": "2B",
+          "displayName": "Broadwave",
+          "unlockCost": 5,
+          "special": false
+        },
+        {
+          "saveName": "2C",
+          "displayName": "Ascender",
+          "unlockCost": 7,
+          "special": false
+        },
+        {
+          "saveName": "3A",
+          "displayName": "WIZTAC",
+          "unlockCost": 3,
+          "special": true
+        }
+      ]
+    },
+    {
+      "character": "Druid",
+      "costumes": [
+        {
+          "saveName": "1A",
+          "displayName": "Professional",
+          "unlockCost": 0,
+          "special": false
+        },
+        {
+          "saveName": "1B",
+          "displayName": "Blood On The Ice",
+          "unlockCost": 2,
+          "special": false
+        },
+        {
+          "saveName": "1D",
+          "displayName": "Toxic",
+          "unlockCost": 4,
+          "special": false
+        },
+        {
+          "saveName": "1E",
+          "displayName": "Overgrown",
+          "unlockCost": 6,
+          "special": false
+        },
+        {
+          "saveName": "3A",
+          "displayName": "WIZTAC",
+          "unlockCost": 2,
+          "special": true
+        }
+      ]
+    }
+  ]
+}
