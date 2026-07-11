@@ -130,8 +130,20 @@ abilities, perk points). Keep logic simple.
   items + 1 if their dream ability is owned (max: Zan 7 [no dream perk — SeerFinale removed],
   Jen/Banks/Dall 6, Rion 5). Gate = best UNLOCKED
   wizard's perk power ≥ ceil(percent × recommendedPerks). Confidence goals gate from act 1 (0-idx;
-  "Act 2"+) via `goal_perk_percent`; completions from act 2 ("Act 3"+) via `completion_perk_percent`.
-  Act 0 ("Act 1") ungated.
+  "Act 2"+) via `goal_perk_percent`; completions ALSO from act 1 ("Act 2"+) via
+  `completion_perk_percent`. Act 0 ("Act 1") ungated.
+- **Team-wide ability gating (`requiredTotalAbilities` / `squadSize`)** — confidence goals
+  that need many abilities at once (e.g. `AbilitiesInOneTurnGoal`, "use N abilities in one
+  turn") carry a `requiredTotalAbilities` count on their location: auto-read from the level
+  file's `AbilitiesInOneTurnGoalAbilitiesNeeded` (see `TOTAL_ABILITY_GOAL_PARAMS`), raisable
+  per goal via `GOAL_REQUIREMENTS`' `"totalAbilities"`. Every confidence goal also carries
+  `squadSize` — how many player wizards its room actually fields (distinct player-wizard
+  prefabs in the .lvl; "Melee Wizard" is Jen; 0 = unparsed, apworld falls back to 4). The
+  apworld requires the best possible squad — the room's `squadSize` best UNLOCKED wizards,
+  each fielding 4 abilities minus any of their BASE-KIT ability items still missing (dream
+  specials are upgrades to a base ability, not extra unique abilities, so they don't count)
+  — to total ≥ the required count. Because the count can need ANY base-kit item, all
+  base-kit abilities are classified progression while any such gate exists.
 - **Victory** = check the location `mission:Game_Finale_Roof` ("Counterheist: The Roof").
   See `goal` in `ap_data.json`.
 
@@ -183,8 +195,8 @@ abilities, perk points). Keep logic simple.
 
 - `confidence_per_boost` (int, default 5, min 2) — confidence granted per Confidence Boost
   item; sets the shop economy granularity and how many boosts get placed (see §6).
-- `completion_perk_percent` (int 0-100, default 50) — best-wizard perk gate for completion (0-idx act 2 / "Act 3"+).
-- `goal_perk_percent` (int 0-100, default 75) — best-wizard perk gate for confidence goals (0-idx act 1 / "Act 2"+).
+- `completion_perk_percent` (int 0-100, default 25) — best-wizard perk gate for completion (0-idx act 1 / "Act 2"+).
+- `goal_perk_percent` (int 0-100, default 50) — best-wizard perk gate for confidence goals (0-idx act 1 / "Act 2"+).
 - `death_link` (bool, default false) — optional; TBW is turn-based, so "death" semantics are
   TBD (e.g. a wizard downed, or a mission failed). Safe to ship off by default.
 - (optional) act-gate thresholds if you want the loose ordering tunable.

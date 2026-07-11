@@ -14,7 +14,7 @@ an existing entry; only append.
 
 Run:  python tools/generate_ap_data.py
 """
-import json, os
+import json, os, re
 
 BASE = 271828000  # arbitrary stable base offset for this game's id space
 
@@ -132,10 +132,25 @@ HALF_REQUIRED_ABILITIES = {
 
 # Extra requirements for a specific CONFIDENCE GOAL, keyed by "<level>|<goalName>"
 # (ordinal-agnostic; applies to all copies of that goal). Each goal already implicitly needs
-# its own tagged wizard; list ADDITIONAL heroes (internal names) and/or ability savenames.
+# its own tagged wizard; list ADDITIONAL heroes (internal names), ability savenames, and/or
+# a TEAM-WIDE ability count ("totalAbilities"). The team count is gated in the apworld: the
+# best possible squad -- as many UNLOCKED wizards as the goal's room actually fields
+# (its squadSize, read from the level's wizard prefabs), each contributing 4 abilities minus
+# any BASE-KIT ability items still missing (dream specials are upgrades, not extra
+# abilities) -- must total at least that many. Use it for goals that need many abilities at
+# once. "Use N abilities in one turn" goals get their N read straight from the level file
+# automatically (TOTAL_ABILITY_GOAL_PARAMS below); an entry here only raises it.
 # Example:
-#   "Streets/2 Curfew.lvl|PriestTotalKnockbackGoal": {"abilities": ["UnlockChainShock"], "characters": ["WitchCop"]},
+#   "Streets/2 Curfew.lvl|PriestTotalKnockbackGoal": {"abilities": ["UnlockChainShock"], "characters": ["WitchCop"], "totalAbilities": 6},
 GOAL_REQUIREMENTS = {
+}
+
+# Confidence-goal types whose level file carries a "how many abilities" parameter
+# ("<param> = N" inside the .lvl). The generator reads N per level and emits it as that
+# goal location's requiredTotalAbilities, so the team-ability gate tracks the game data
+# by itself (The Meet 5, Pyromancer 9, Fort Osprey 16, ...).
+TOTAL_ABILITY_GOAL_PARAMS = {
+    "AbilitiesInOneTurnGoal": "AbilitiesInOneTurnGoalAbilitiesNeeded",
 }
 
 # Recommended PER-SLOT perk count per mission = the strongest single wizard the dev
@@ -179,6 +194,44 @@ def mission_levels(folder):
         return []
     return sorted(files, key=_level_sort_key)
 
+# Player-wizard prefab tags as they appear in .lvl files ("Melee Wizard" is Jen; enemy
+# variants are named differently, e.g. "Enemy Riot Priest"). The DISTINCT tags present in a
+# level = how many wizards that room actually fields (a duplicated prefab -- dream doubles,
+# corpses to revive -- adds no unique abilities). Feeds each confidence goal's squadSize.
+PLAYER_WIZARD_PREFABS = {
+    "Melee Wizard": "WitchCop",
+    "Navy Seer": "NavySeer",
+    "Necromedic": "NecroMedic",
+    "Riot Priest": "RiotPriest",
+    "Druid": "Druid",
+}
+
+def level_squad_size(level):
+    """How many distinct player wizards a level fields (0 if unreadable or none found --
+    a few levels use special prefabs, e.g. Rion's dream; the apworld falls back to its
+    default squad size for 0)."""
+    path = os.path.join(LEVELS_DIR, *level.split("/"))
+    try:
+        with open(path, encoding="utf-8", errors="replace") as f:
+            s = f.read()
+    except OSError:
+        return 0
+    return sum(1 for w in PLAYER_WIZARD_PREFABS if f"<prefab:{w}>" in s)
+
+def level_int_param(level, param):
+    """Read an integer '<param> = N' line from a level file ("<folder>/<file>.lvl" under
+    LEVELS_DIR). 0 if the file or the line is missing."""
+    path = os.path.join(LEVELS_DIR, *level.split("/"))
+    try:
+        with open(path, encoding="utf-8", errors="replace") as f:
+            for line in f:
+                m = re.match(rf"\s*{re.escape(param)}\s*=\s*(\d+)", line)
+                if m:
+                    return int(m.group(1))
+    except OSError:
+        pass
+    return 0
+
 def load_dump():
     with open(os.path.join(HERE, "tbw_ap_dump.json"), encoding="utf-8") as f:
         return json.load(f)
@@ -209,12 +262,26 @@ def build(d):
         key = f'{g["level"]}|{g["goalName"]}'
         seen[key] = seen.get(key, 0) + 1
         ordinal = seen[key]
+        # Team-wide ability count this goal needs: auto-read from the level file for
+        # known "use N abilities" goal types, raisable via GOAL_REQUIREMENTS. squadSize is
+        # how many wizards the room fields (caps how many can contribute abilities).
+        total_abilities = int(GOAL_REQUIREMENTS.get(key, {}).get("totalAbilities", 0))
+        param = TOTAL_ABILITY_GOAL_PARAMS.get(g["goalName"])
+        if param:
+            total_abilities = max(total_abilities, level_int_param(g["level"], param))
+        squad = level_squad_size(g["level"])
+        if total_abilities and squad and total_abilities > squad * 4:
+            raise AssertionError(
+                f"{key}: needs {total_abilities} abilities but the room only fields "
+                f"{squad} wizards (max {squad * 4}) -- the goal would be unreachable")
         goals.append({
             "level": g["level"],
             "goalName": g["goalName"],
             "character": g["character"],
             "isFinaleGoal": g["isFinaleGoal"],
             "ordinal": ordinal,   # disambiguates rare duplicate goal types in one level
+            "totalAbilities": total_abilities,
+            "squadSize": squad,
         })
 
     # --- outfits: purchasable only (cost > 0, not DLC) ---
@@ -328,18 +395,22 @@ def build(d):
                  f"ability:{ab['stageID']}", "progression", {"stageID": ab["stageID"]})
     # items: base-kit abilities (formerly auto-granted at start; now AP-unlocked) -- appended at
     # +1305.. so the specials' ids above stay frozen. No matching location: pure pool items.
-    # Classification: progression only if a completion/goal requirement references the ability
+    # Classification: progression if a completion/goal requirement references the ability
     # (then the fill must be able to collect it); otherwise useful. The missing-ability perk
     # penalty is CAPPED (see rules.MAX_MISSING_ABILITY_PENALTY), so perks alone can overcome it
     # -- the fill never NEEDS to collect an unreferenced base ability to satisfy a perk gate, so
     # keeping them useful (out of the progression set) keeps generation feasible.
+    # EXCEPTION: if any goal carries a team-wide ability count (totalAbilities), the gate can
+    # need ANY ability item to raise the team total, so every base-kit ability must be
+    # progression for the fill's reachability sweep to satisfy it.
     required_ability_savenames = set()
     for _abs in FIRM_REQUIRED_ABILITIES.values():
         required_ability_savenames.update(_abs)
     for _req in GOAL_REQUIREMENTS.values():
         required_ability_savenames.update(_req.get("abilities", []))
+    any_team_ability_gate = any(g["totalAbilities"] > 0 for g in goals)
     for j, (sv, label, ch) in enumerate(BASE_ABILITIES):
-        cls = "progression" if sv in required_ability_savenames else "useful"
+        cls = "progression" if (any_team_ability_gate or sv in required_ability_savenames) else "useful"
         add_item("ability", len(abilities) + j, f"Ability: {label} ({disp(ch)})",
                  f"ability:{sv}", cls, {"stageID": sv, "character": ch, "baseKit": True})
     # items: perk points (one code per character; multiple copies placed at gen time)
@@ -392,7 +463,9 @@ def build(d):
                  "missionStageID": mis["stageID"] if mis else None,
                  "act": mis["act"] if mis else None,
                  "requiredCharacters": list(extra.get("characters", [])),
-                 "requiredAbilities": list(extra.get("abilities", []))})
+                 "requiredAbilities": list(extra.get("abilities", [])),
+                 "requiredTotalAbilities": g["totalAbilities"],
+                 "squadSize": g["squadSize"]})
     # locations: outfit purchases (available in the meta-menu outfit shop)
     for i, o in enumerate(outfits):
         add_loc("outfit_purchase", i, f"Buy Outfit: {o['displayName']} ({disp(o['character'])})",

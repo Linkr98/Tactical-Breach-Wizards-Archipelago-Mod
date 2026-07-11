@@ -153,13 +153,32 @@ GOAL_REQUIREMENTS = {
     "Streets/2 Curfew.lvl|PriestTotalKnockbackGoal": {
         "abilities":  ["UnlockChainShock"],   # ability savenames
         "characters": ["WitchCop"],           # EXTRA internal heroes (beyond the goal's own)
+        "totalAbilities": 6,                  # team-wide ability count (see below)
     },
 }
 ```
 
 - The goal already implicitly needs its own tagged wizard (the `[Name]` in its title); only
   list **additional** heroes here.
-- `abilities` and `characters` are both optional — include whichever applies.
+- `abilities`, `characters`, and `totalAbilities` are all optional — include whichever applies.
+
+### Team-wide ability count (`totalAbilities`)
+
+For goals that need **many abilities at once** (e.g. "use 9 abilities in one turn"), set
+`totalAbilities` to the count. The apworld then requires the player's best possible squad to
+field at least that many abilities. Only as many wizards as the goal's room actually fields
+can contribute (the location's `squadSize`, counted automatically from the level's
+player-wizard prefabs), and each **unlocked** wizard contributes 4 abilities minus every
+BASE-KIT ability item of theirs still missing. Dream specials do **not** count — they upgrade
+an existing base ability rather than add a unique one. So `16` in a 5-wizard room demands
+most of the roster's base kits; `9` in a 3-wizard room demands three wizards with most of
+their kits.
+
+`AbilitiesInOneTurnGoal` goals get their count **automatically** from the level file's
+`AbilitiesInOneTurnGoalAbilitiesNeeded` (see `TOTAL_ABILITY_GOAL_PARAMS` in the generator) —
+a `totalAbilities` entry here only raises it, never lowers. The generator errors if a goal
+would need more abilities than its room's wizards can field. While any such gate exists, all
+base-kit ability items are classified progression (the gate may need any of them).
 
 ## 3. Requirements for a mission's HALFWAY checkpoint
 
