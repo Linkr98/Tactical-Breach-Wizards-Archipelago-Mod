@@ -18,7 +18,9 @@
   "goal": {
     "stageID": "Game_Finale_Roof",
     "name": "Counterheist: The Roof",
-    "locationKey": "mission:Game_Finale_Roof"
+    "locationKey": "mission:Game_Finale_Roof",
+    "requireAllCharacters": true,
+    "requireAllAbilities": true
   },
   "missionOrder": [
     "Game_Prologue",
@@ -62,8 +64,12 @@
       ],
       "order": 0,
       "charactersUsed": [],
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "NavySeer"
+      ],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [
         "NavySeer"
       ],
@@ -91,10 +97,15 @@
       ],
       "order": 1,
       "charactersUsed": [],
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "NavySeer",
+        "WitchCop"
+      ],
       "requiredAbilities": [
         "seerOverwatch"
       ],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [
         "WitchCop"
       ],
@@ -128,6 +139,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Lobby.lvl",
@@ -153,6 +166,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 The Traffic Warlock.lvl"
@@ -175,6 +190,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Warlock.lvl"
@@ -199,9 +216,9 @@
       "requiredCharacters": [
         "NavySeer"
       ],
-      "requiredAbilities": [
-        "UnlockFalseProphet"
-      ],
+      "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [
         "NecroMedic"
       ],
@@ -213,8 +230,12 @@
       ],
       "lastLevel": "4 The Cell.lvl",
       "halfLevel": "2 Mainframe.lvl",
-      "halfRequiredCharacters": [],
-      "halfRequiredAbilities": [],
+      "halfRequiredCharacters": [
+        "NavySeer"
+      ],
+      "halfRequiredAbilities": [
+        "UnlockFalseProphet"
+      ],
       "recommendedPerks": 2
     },
     {
@@ -234,9 +255,9 @@
         "NecroMedic",
         "WitchCop"
       ],
-      "requiredAbilities": [
-        "UnlockBroomBreach"
-      ],
+      "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Intro.lvl",
@@ -245,8 +266,13 @@
       ],
       "lastLevel": "3 Broom Breach.lvl",
       "halfLevel": "2 Lead Medicine.lvl",
-      "halfRequiredCharacters": [],
-      "halfRequiredAbilities": [],
+      "halfRequiredCharacters": [
+        "WitchCop",
+        "NecroMedic"
+      ],
+      "halfRequiredAbilities": [
+        "UnlockBroomBreach"
+      ],
       "recommendedPerks": 2
     },
     {
@@ -263,6 +289,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Spectral Skull.lvl",
@@ -289,6 +317,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Entry Strategy.lvl",
@@ -316,6 +346,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 The Less Lethal Pyromancer.lvl"
@@ -338,6 +370,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Backdoor.lvl",
@@ -367,6 +401,8 @@
         "WitchCop"
       ],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 On Board.lvl",
@@ -396,8 +432,12 @@
         "RiotPriest",
         "WitchCop"
       ],
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "RiotPriest"
+      ],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [
         "RiotPriest"
       ],
@@ -408,7 +448,9 @@
       ],
       "lastLevel": "3 Going To Ground.lvl",
       "halfLevel": "2 Curfew.lvl",
-      "halfRequiredCharacters": [],
+      "halfRequiredCharacters": [
+        "RiotPriest"
+      ],
       "halfRequiredAbilities": [],
       "recommendedPerks": 4
     },
@@ -427,6 +469,33 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [
+        [
+          {
+            "characters": [
+              "RiotPriest"
+            ],
+            "abilities": []
+          },
+          {
+            "characters": [
+              "NecroMedic"
+            ],
+            "abilities": [
+              "Unlock_DeathsFloor"
+            ]
+          },
+          {
+            "characters": [
+              "WitchCop"
+            ],
+            "abilities": [
+              "UnlockBroomBreach"
+            ]
+          }
+        ]
+      ],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 The Golden Arms.lvl",
@@ -457,6 +526,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Heavy Backup.lvl",
@@ -489,6 +560,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [
         "Druid"
       ],
@@ -512,8 +585,12 @@
       "characterUnlocks": [],
       "order": 16,
       "charactersUsed": [],
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "NavySeer"
+      ],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Chokepoint.lvl"
@@ -540,6 +617,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Tick Tock.lvl"
@@ -558,8 +637,12 @@
       "characterUnlocks": [],
       "order": 18,
       "charactersUsed": [],
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "2 Liv And Let Die.lvl"
@@ -582,8 +665,15 @@
         "NecroMedic",
         "RiotPriest"
       ],
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "Druid",
+        "NavySeer",
+        "RiotPriest",
+        "WitchCop"
+      ],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 The Body.lvl",
@@ -620,6 +710,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Gangway.lvl",
@@ -646,6 +738,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Blind Faith.lvl",
@@ -675,6 +769,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Empty Coffins.lvl",
@@ -700,6 +796,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 The Pit.lvl",
@@ -728,6 +826,8 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Split Focus.lvl",
@@ -752,8 +852,13 @@
       "charactersUsed": [
         "NavySeer"
       ],
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "NavySeer",
+        "WitchCop"
+      ],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Unsupportive Fire.lvl",
@@ -764,7 +869,9 @@
       "lastLevel": "4 Bad Zan.lvl",
       "halfLevel": "2 Beam Flower.lvl",
       "halfRequiredCharacters": [],
-      "halfRequiredAbilities": [],
+      "halfRequiredAbilities": [
+        "UnlockFalseProphet"
+      ],
       "recommendedPerks": 6
     },
     {
@@ -778,8 +885,12 @@
         "RiotPriest",
         "WitchCop"
       ],
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "WitchCop"
+      ],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 The Gold Vault.lvl",
@@ -802,8 +913,13 @@
         "Druid",
         "NecroMedic"
       ],
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "RiotPriest",
+        "WitchCop"
+      ],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Dust To Dust.lvl",
@@ -829,8 +945,16 @@
         "RiotPriest",
         "WitchCop"
       ],
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "Druid",
+        "NavySeer",
+        "NecroMedic",
+        "RiotPriest",
+        "WitchCop"
+      ],
       "requiredAbilities": [],
+      "requiredAnyOf": [],
+      "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [
         "1 Vesker s Landing.lvl",
@@ -1126,11 +1250,13 @@
     },
     {
       "id": 271829301,
-      "name": "Ability: Unlock_DeathsFloor",
+      "name": "Ability: Death's Floor (Banks)",
       "key": "ability:Unlock_DeathsFloor",
       "category": "ability",
       "classification": "progression",
-      "stageID": "Unlock_DeathsFloor"
+      "stageID": "Unlock_DeathsFloor",
+      "character": "NecroMedic",
+      "baseKit": true
     },
     {
       "id": 271829302,
@@ -1230,13 +1356,13 @@
     },
     {
       "id": 271829312,
-      "name": "Ability: Death's Floor (Banks)",
+      "name": "Ability: Death's Floor (Banks) [Legacy]",
       "key": "ability:UnlockDeathsFloor",
       "category": "ability",
-      "classification": "progression",
+      "classification": "useful",
       "stageID": "UnlockDeathsFloor",
       "character": "NecroMedic",
-      "baseKit": true
+      "retired": true
     },
     {
       "id": 271829313,
@@ -1827,7 +1953,8 @@
       "requiredCharacters": [
         "NavySeer"
       ],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830701,
@@ -1842,7 +1969,8 @@
         "WitchCop",
         "NavySeer"
       ],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830702,
@@ -1854,7 +1982,8 @@
       "order": 2,
       "missionStageID": "Game_Evidence_Lockup",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830703,
@@ -1865,8 +1994,13 @@
       "act": 1,
       "order": 5,
       "missionStageID": "Game_Liboli_Intro",
-      "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredCharacters": [
+        "NavySeer"
+      ],
+      "requiredAbilities": [
+        "UnlockFalseProphet"
+      ],
+      "requiredAnyOf": []
     },
     {
       "id": 271830704,
@@ -1877,8 +2011,14 @@
       "act": 1,
       "order": 6,
       "missionStageID": "Game_Necro_Intro",
-      "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredCharacters": [
+        "WitchCop",
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockBroomBreach"
+      ],
+      "requiredAnyOf": []
     },
     {
       "id": 271830705,
@@ -1890,7 +2030,8 @@
       "order": 7,
       "missionStageID": "Game_The_Meet",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830706,
@@ -1902,7 +2043,8 @@
       "order": 8,
       "missionStageID": "Game_Exit_Strategy",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830707,
@@ -1914,7 +2056,8 @@
       "order": 10,
       "missionStageID": "Game_Lucid_Dream_Jen",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830708,
@@ -1926,7 +2069,8 @@
       "order": 11,
       "missionStageID": "Game_Train",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830709,
@@ -1937,8 +2081,11 @@
       "act": 2,
       "order": 12,
       "missionStageID": "Game_Streets",
-      "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredCharacters": [
+        "RiotPriest"
+      ],
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830710,
@@ -1950,7 +2097,8 @@
       "order": 13,
       "missionStageID": "Game_The_Recording",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830711,
@@ -1962,7 +2110,8 @@
       "order": 14,
       "missionStageID": "Game_The_Broadcast",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830712,
@@ -1976,7 +2125,8 @@
       "requiredCharacters": [
         "NecroMedic"
       ],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830713,
@@ -1994,7 +2144,8 @@
         "RiotPriest",
         "Druid"
       ],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830714,
@@ -2006,7 +2157,8 @@
       "order": 20,
       "missionStageID": "Game_Two_Trains",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830715,
@@ -2018,7 +2170,8 @@
       "order": 21,
       "missionStageID": "Game_Lucid_Dream_Dall",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830716,
@@ -2030,7 +2183,8 @@
       "order": 22,
       "missionStageID": "Game_Fort_Osprey",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830717,
@@ -2042,7 +2196,8 @@
       "order": 23,
       "missionStageID": "Game_Lucid_Dream_Rion",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830718,
@@ -2054,7 +2209,8 @@
       "order": 24,
       "missionStageID": "Game_Villa_Medil",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830719,
@@ -2066,7 +2222,10 @@
       "order": 25,
       "missionStageID": "Game_Lucid_Dream_Zan",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [
+        "UnlockFalseProphet"
+      ],
+      "requiredAnyOf": []
     },
     {
       "id": 271830720,
@@ -2078,7 +2237,8 @@
       "order": 26,
       "missionStageID": "Game_Finale_Vault",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830721,
@@ -2090,7 +2250,8 @@
       "order": 27,
       "missionStageID": "Game_Finale_Mines",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830722,
@@ -2102,7 +2263,8 @@
       "order": 28,
       "missionStageID": "Game_Finale_Roof",
       "requiredCharacters": [],
-      "requiredAbilities": []
+      "requiredAbilities": [],
+      "requiredAnyOf": []
     },
     {
       "id": 271830100,
@@ -2129,8 +2291,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Evidence_Lockup",
       "act": 0,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "WitchCop"
+      ],
+      "requiredAbilities": [
+        "UnlockGaleGrenade"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -2145,7 +2311,9 @@
       "missionStageID": "Game_Evidence_Lockup",
       "act": 0,
       "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredAbilities": [
+        "UnlockChainShock"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -2189,8 +2357,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Evidence_Lockup",
       "act": 0,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NavySeer"
+      ],
+      "requiredAbilities": [
+        "seerOverwatch"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -2324,8 +2496,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Liboli_Intro",
       "act": 1,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NavySeer"
+      ],
+      "requiredAbilities": [
+        "seerOverwatch"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -2354,8 +2530,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Liboli_Intro",
       "act": 1,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NavySeer"
+      ],
+      "requiredAbilities": [
+        "seerOverwatch"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 1
     },
@@ -2415,7 +2595,9 @@
       "missionStageID": "Game_Necro_Intro",
       "act": 1,
       "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredAbilities": [
+        "UnlockBroomBreach"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -2430,7 +2612,9 @@
       "missionStageID": "Game_Necro_Intro",
       "act": 1,
       "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredAbilities": [
+        "UnlockBroomBreach"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -2459,8 +2643,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_The_Meet",
       "act": 1,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockGhostShot"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 3
     },
@@ -2504,8 +2692,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_The_Meet",
       "act": 1,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockGhostShot"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 3
     },
@@ -2534,8 +2726,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_The_Meet",
       "act": 1,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockTransference"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 3
     },
@@ -2654,8 +2850,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Exit_Strategy",
       "act": 1,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockTransference"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 3
     },
@@ -2699,7 +2899,9 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_The_Pyromancer",
       "act": 1,
-      "requiredCharacters": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
       "requiredAbilities": [],
       "requiredTotalAbilities": 0,
       "squadSize": 3
@@ -2819,8 +3021,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Train",
       "act": 2,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockGhostShot"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -2939,8 +3145,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Streets",
       "act": 2,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockGhostShot"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 3
     },
@@ -2984,8 +3194,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Streets",
       "act": 2,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockGhostShot"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 3
     },
@@ -3119,8 +3333,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_The_Recording",
       "act": 2,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockGhostShot"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 3
     },
@@ -3269,8 +3487,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_The_Broadcast",
       "act": 2,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockTransference"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -3344,8 +3566,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_The_Broadcast",
       "act": 2,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockTransference"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -3494,8 +3720,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Kalan_Ambush",
       "act": 2,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockTransference"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 4
     },
@@ -3539,8 +3769,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Lucid_Dream_Banks",
       "act": 2,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockTransference"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 1
     },
@@ -3614,8 +3848,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Two_Trains",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "WitchCop"
+      ],
+      "requiredAbilities": [
+        "UnlockBroomBreach"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -3629,8 +3867,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Two_Trains",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "Druid"
+      ],
+      "requiredAbilities": [
+        "UnlockCrowdGrenade"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -3659,8 +3901,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Two_Trains",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "Druid"
+      ],
+      "requiredAbilities": [
+        "UnlockCrowdGrenade"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -3674,8 +3920,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Two_Trains",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockTransference"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 3
     },
@@ -3839,8 +4089,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Fort_Osprey",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "Druid"
+      ],
+      "requiredAbilities": [
+        "UnlockCrowdGrenade"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -3899,8 +4153,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Fort_Osprey",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockTransference"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -3944,8 +4202,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Fort_Osprey",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "Druid"
+      ],
+      "requiredAbilities": [
+        "UnlockCrowdGrenade"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 5
     },
@@ -3989,8 +4251,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Lucid_Dream_Rion",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "Druid"
+      ],
+      "requiredAbilities": [
+        "UnlockCrowdGrenade"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 0
     },
@@ -4049,8 +4315,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Villa_Medil",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockTransference"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 3
     },
@@ -4109,8 +4379,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Villa_Medil",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "Druid"
+      ],
+      "requiredAbilities": [
+        "UnlockCrowdGrenade"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 5
     },
@@ -4274,8 +4548,12 @@
       "isFinaleGoal": false,
       "missionStageID": "Game_Finale_Mines",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "Unlock_DeathsFloor"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 2
     },
@@ -4349,8 +4627,12 @@
       "isFinaleGoal": true,
       "missionStageID": "Game_Finale_Roof",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NavySeer"
+      ],
+      "requiredAbilities": [
+        "seerOverwatch"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 1
     },
@@ -4364,8 +4646,12 @@
       "isFinaleGoal": true,
       "missionStageID": "Game_Finale_Roof",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "NecroMedic"
+      ],
+      "requiredAbilities": [
+        "UnlockTransference"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 1
     },
@@ -4379,8 +4665,12 @@
       "isFinaleGoal": true,
       "missionStageID": "Game_Finale_Roof",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "Druid"
+      ],
+      "requiredAbilities": [
+        "UnlockCrowdGrenade"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 1
     },
@@ -4394,8 +4684,12 @@
       "isFinaleGoal": true,
       "missionStageID": "Game_Finale_Roof",
       "act": 3,
-      "requiredCharacters": [],
-      "requiredAbilities": [],
+      "requiredCharacters": [
+        "WitchCop"
+      ],
+      "requiredAbilities": [
+        "UnlockChainShock"
+      ],
       "requiredTotalAbilities": 0,
       "squadSize": 1
     },

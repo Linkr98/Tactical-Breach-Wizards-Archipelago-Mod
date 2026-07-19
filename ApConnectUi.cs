@@ -304,6 +304,42 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
         }
     }
 
+    /// <summary>
+    /// Makes the dialog modal against the game's OWN input path. The menu UI (Wizards' custom
+    /// Button class) never touches the uGUI EventSystem — Button.Update polls
+    /// Managers.Input.ControlDown("MenuClick"/"MenuSelect") every frame — so disabling the
+    /// EventSystem does NOT stop a click on the IMGUI dialog from also pressing whatever game
+    /// button sits underneath. That's exactly how first-session saves silently ended up on Hard
+    /// difficulty (no starting mana): the new-game difficulty popup was still open behind the
+    /// connect dialog, the "Connect" click landed on its Hard button, and that re-entered
+    /// OnNewGameConfirm(hard) — replacing the stashed resume with a hard-mode one. Blocking
+    /// ControlDown/ControlUp at the source while the dialog is visible closes that hole for every
+    /// gated entry point at once.
+    /// </summary>
+    [HarmonyPatch(typeof(Wizards.Controls.InputManager), "ControlDown")]
+    public static class Patch_BlockControlDownWhileDialogVisible
+    {
+        [HarmonyPrefix]
+        public static bool Prefix(ref bool __result)
+        {
+            if (!ApConnectDialog.Visible) return true;
+            __result = false;
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(Wizards.Controls.InputManager), "ControlUp")]
+    public static class Patch_BlockControlUpWhileDialogVisible
+    {
+        [HarmonyPrefix]
+        public static bool Prefix(ref bool __result)
+        {
+            if (!ApConnectDialog.Visible) return true;
+            __result = false;
+            return false;
+        }
+    }
+
     /// <summary>Vanilla stage-replay entry ("Mission Select" on a save slot, which jumps straight
     /// to a stage via OverwriteProgressAndJumpToStage -> ContinueGame). Same gate.</summary>
     [HarmonyPatch(typeof(SaveSlotEntry), "OnMissionSelectConfirm")]

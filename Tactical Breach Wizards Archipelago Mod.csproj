@@ -112,9 +112,16 @@
       <HintPath>..\..\..\Tactical Breach Wizards_Data\Managed\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <!-- The Archipelago client lib is NOT present at runtime, so it MUST be copied
-         into the plugin folder (override the global Private=False default). -->
+         into the plugin folder (override the global Private=False default).
+         NOTE: this is the net40 build of the lib (not net45) — that build talks through
+         websocket-sharp, which supports permessage-deflate compression (the net45 build's
+         ClientWebSocket can't on .NET Framework). SocketCompressionPatch turns it on. -->
     <Reference Include="Archipelago.MultiClient.Net">
       <HintPath>lib\Archipelago.MultiClient.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>lib\websocket-sharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -125,6 +132,7 @@
     <Compile Include="ApLookup.cs" />
     <Compile Include="ApState.cs" />
     <Compile Include="ApClient.cs" />
+    <Compile Include="SocketCompressionPatch.cs" />
     <Compile Include="ApManager.cs" />
     <Compile Include="ApConnectUi.cs" />
     <Compile Include="CharacterPatches.cs" />

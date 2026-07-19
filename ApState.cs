@@ -69,6 +69,38 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
 
         public bool IsCharacterUnlocked(string internalName) => UnlockedCharacters.Contains(internalName);
         public bool IsMissionUnlocked(string stageID) => UnlockedMissions.Contains(stageID);
+
+        /// <summary>Every playable character item has been received.</summary>
+        public bool AllCharactersUnlocked
+        {
+            get
+            {
+                foreach (var ch in ApLookup.PlayableCharacters)
+                    if (!UnlockedCharacters.Contains(ch)) return false;
+                return true;
+            }
+        }
+
+        /// <summary>What still blocks LAUNCHING a mission, as user-facing names: the mission-access
+        /// item if not yet received, plus any ApData.LaunchRequiredCharacters wizards still locked
+        /// (anxiety dreams need their wizard, the tutorial auto-fields Zan, the finale auto-spawns
+        /// the full squad). Empty list = launchable. Other missions are logic-only on purpose:
+        /// out-of-logic grants may play them.</summary>
+        public List<string> MissingLaunchRequirements(string stageID)
+        {
+            var missing = new List<string>();
+            if (!IsMissionUnlocked(stageID))
+                missing.Add("its Mission Access item");
+            if (ApData.LaunchRequiredCharacters.TryGetValue(stageID, out var chars))
+                foreach (var ch in chars)
+                    if (!UnlockedCharacters.Contains(ch))
+                        missing.Add(ApData.CharacterDisplayNames.TryGetValue(ch, out var disp) ? disp : ch);
+            return missing;
+        }
+
+        /// <summary>Whether the mod should let the player LAUNCH a mission (see
+        /// <see cref="MissingLaunchRequirements"/>).</summary>
+        public bool IsMissionLaunchable(string stageID) => MissingLaunchRequirements(stageID).Count == 0;
         public bool IsAbilityUnlocked(string stageID) => UnlockedAbilities.Contains(stageID);
         public bool IsOutfitOwned(string character, string saveName) => OwnedOutfits.Contains(character + ":" + saveName);
         public int PerkPointsFor(string internalName) => PerkPoints.TryGetValue(internalName, out var n) ? n : 0;

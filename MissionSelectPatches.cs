@@ -1,6 +1,8 @@
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
+using Wizards.SaveSystem;
+using Wizards.Stages;
 using Wizards.UI;
 
 namespace Tactical_Breach_Wizards_Archipelago_Mod
@@ -17,15 +19,16 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
     /// appended panels clean themselves up; we don't touch the panel's private tracking list.)
     /// </summary>
     /// <summary>
-    /// Makes AP-unlocked campaign missions launchable from the in-campaign replay board
-    /// (ChapterSelectPanel in chapterSelect mode -- the screen you reach between missions). Vanilla
-    /// reveals polaroids only for the COMPLETED linear prefix (reveal is a count from the start of
-    /// each chapter line, so it can't surface the out-of-order missions AP unlocks). After the panel
-    /// builds, we directly Show() the polaroid of every AP-unlocked mission and mark its line as
-    /// finished-displaying so the polaroid is clickable; clicking opens the level card and launches
-    /// via LoadFlashbackMission (the same path completed replays use). Missions you don't yet hold
-    /// the AP access item for stay hidden, so they can't be launched. Restricted to chapterSelect
-    /// mode so it never disturbs the new-game / chapter-intro reveal animations.
+    /// Shows EVERY campaign mission on the in-campaign replay board (ChapterSelectPanel in
+    /// chapterSelect mode) so the whole seed is visible at a glance: launchable missions show
+    /// their real photo; everything else (missing its access item, or missing wizards the
+    /// mission would put in your hands) shows the darkened "unreached" silhouette as the locked
+    /// cue. Vanilla only reveals the COMPLETED linear prefix (reveal is a count from the start
+    /// of each chapter line), and would show the FIRST mission's real photo even with nothing
+    /// unlocked -- both replaced here. Every polaroid stays clickable: the level card then hides
+    /// Play All for locked missions and toasts exactly what's missing, and OnPlayAllClick is
+    /// hard-blocked as backstop. Restricted to chapterSelect mode so it never disturbs the
+    /// new-game / chapter-intro reveal animations.
     /// </summary>
     [HarmonyPatch(typeof(ChapterSelectPanel), "OnActivatePanel")]
     public static class Patch_ChapterReplayShowApUnlocked
@@ -46,11 +49,16 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
                     foreach (var pol in line.polaroids)
                     {
                         if (pol?.myStage == null) continue;
-                        if (!state.IsMissionUnlocked(pol.myStage.stageID)) continue;
-                        // Show the real mission photo instead of the "unreached" silhouette overlay:
-                        // Show() only draws the overlay when isCompleted is false. In AP the mission is
-                        // reachable (you hold its access item), so the actual icon is the right visual.
-                        pol.isCompleted = true;
+                        // Only the 29 AP campaign missions; other stage polaroids stay vanilla.
+                        if (!ApLookup.MissionByStageId.ContainsKey(pol.myStage.stageID)) continue;
+                        // Real photo iff launchable (isCompleted=true skips the "unreached"
+                        // silhouette overlay); locked missions -- missing their access item or
+                        // wizards the mission puts in your hands -- keep the silhouette. This
+                        // also OVERRIDES vanilla's reveal of the first mission, which would
+                        // otherwise show its real photo before it's unlocked. Clicking a locked
+                        // polaroid opens the level card, which hides Play All and toasts what's
+                        // missing.
+                        pol.isCompleted = state.IsMissionLaunchable(pol.myStage.stageID);
                         pol.Show(false);
                         revealedInLine = true;
                         shown++;
@@ -99,19 +107,162 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
     /// room replay (no skip exploit remains once it's done). Only the campaign card (SetStageID) is
     /// touched; dream missions use SetDirectory and AP excludes them anyway.
     /// </summary>
+    /// <summary>
+    /// Shared launch-gating for the mission level card: hides the "Play All" button and toasts
+    /// exactly what's missing when the mission isn't launchable yet (no access item; anxiety
+    /// dream without its wizard; the tutorial without Zan; the finale without the full squad).
+    /// The card object is reused between opens, so the button must be re-enabled for launchable
+    /// missions. Room-line hiding (anti-skip) is handled by the callers.
+    /// </summary>
+    internal static class LaunchGate
+    {
+        public static void Apply(ChapterSelectLevelsCard card, string stageID, string displayName)
+        {
+            var state = ApManager.State;
+            if (state == null || card.playAllButton == null) return;
+            var missing = state.MissingLaunchRequirements(stageID);
+            card.playAllButton.gameObject.SetActive(missing.Count == 0);
+            if (missing.Count > 0)
+                ApManager.ToastInfo($"{displayName} is locked -- missing: {string.Join(", ", missing.ToArray())}");
+        }
+    }
+
     [HarmonyPatch(typeof(ChapterSelectLevelsCard), "SetStageID")]
     public static class Patch_BlockRoomSkip
     {
+        private static readonly AccessTools.FieldRef<ChapterSelectLevelsCard, LoadableStage> StageRef =
+            AccessTools.FieldRefAccess<ChapterSelectLevelsCard, LoadableStage>("stage");
+
         [HarmonyPostfix]
         public static void Postfix(ChapterSelectLevelsCard __instance, string _stageID)
         {
             if (!ApManager.IsActive || __instance.levelLinesContainer == null) return;
+            // Not launchable (e.g. the vanilla-revealed tutorial without its access item / Zan,
+            // or the finale without the roster) -> no Play All either; toast says what's missing.
+            bool known = ApLookup.MissionByStageId.TryGetValue(_stageID, out var mission);
+            LaunchGate.Apply(__instance, _stageID, known ? mission.Name : _stageID);
             // Done (AP mission-complete check fired, or game flag) -> allow individual room replay so
             // the player can revisit rooms for missed confidence goals. AP missions finish via
             // flashback (no game stage-complete flag), so IsMissionCompleted is the reliable signal.
             if (ApManager.IsMissionCompleted(_stageID) || Managers.Stage.IsStageCompleted(_stageID)) return;
-            foreach (Transform child in __instance.levelLinesContainer)
-                child.gameObject.SetActive(false);                   // not done -> force Play All (start to finish)
+            var stage = StageRef(__instance);
+            RoomGate.HideUnreachedRooms(__instance.levelLinesContainer,
+                stage != null ? stage.GetStageBuildingFolder() : (LevelFile?)null,
+                known ? mission.HalfLevel : null, known ? mission.StageID : null);
+        }
+    }
+
+    /// <summary>
+    /// Room-line gating for missions that aren't completed yet ("resume from checkpoint"). Once a
+    /// mission's Halfway check is registered with AP, the card reveals the room lines up to and
+    /// including the FIRST ROOM OF THE BACK HALF -- clicking a room runs the mission from there
+    /// through to the last room (the exact same flashback path Play All uses, just a different
+    /// starting level), so the player can resume without redoing the first half. Rooms beyond that
+    /// stay hidden: jumping ahead would cheese the mission-complete check, which fires on the last
+    /// room. Before halfway (or for single-room missions, which have no half location), every line
+    /// stays hidden and Play All remains the only way in. Lines are matched by their LevelFile
+    /// rather than child order, since the card's old lines are still awaiting destruction when the
+    /// new ones are generated.
+    /// </summary>
+    internal static class RoomGate
+    {
+        private static readonly AccessTools.FieldRef<ChapterSelectLevelLine, LevelFile> LineLevel =
+            AccessTools.FieldRefAccess<ChapterSelectLevelLine, LevelFile>("level");
+
+        public static void HideUnreachedRooms(Transform container, LevelFile? roomsFolder, string halfLevel, string stageID)
+        {
+            var visible = new System.Collections.Generic.HashSet<string>();
+            var state = ApManager.State;
+            bool launchable = state != null && stageID != null && state.MissingLaunchRequirements(stageID).Count == 0;
+            if (launchable && halfLevel != null && roomsFolder.HasValue && ApManager.IsMissionHalfReached(stageID))
+            {
+                var rooms = LevelFile.GetLevelFiles(roomsFolder.Value);
+                for (int i = 0; i < rooms.Length; i++)
+                {
+                    visible.Add(rooms[i].FileName);
+                    if (rooms[i].FileName == halfLevel)
+                    {
+                        if (i + 1 < rooms.Length) visible.Add(rooms[i + 1].FileName);
+                        break;
+                    }
+                }
+            }
+            foreach (Transform child in container)
+            {
+                var line = child.GetComponent<ChapterSelectLevelLine>();
+                bool show = false;
+                if (line != null)
+                {
+                    LevelFile lvl = LineLevel(line);
+                    show = visible.Contains(lvl.FileName);
+                }
+                child.gameObject.SetActive(show);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Same treatment for directory-based cards (the anxiety-dreams panel uses SetDirectory):
+    /// gate Play All + toast what's missing, and apply the same anti-room-skip as campaign
+    /// missions (dream completion fires on the LAST room, so jumping ahead would cheese it).
+    /// Folders that aren't AP campaign missions (custom levels) are left vanilla.
+    /// </summary>
+    [HarmonyPatch(typeof(ChapterSelectLevelsCard), "SetDirectory")]
+    public static class Patch_GateDreamCard
+    {
+        [HarmonyPostfix]
+        public static void Postfix(ChapterSelectLevelsCard __instance, LevelFile _dir)
+        {
+            if (!ApManager.IsActive || _dir == null) return;
+            if (!ApLookup.MissionByFolder.TryGetValue(_dir.folder, out var mission)) return;
+            LaunchGate.Apply(__instance, mission.StageID, mission.Name);
+            if (ApManager.IsMissionCompleted(mission.StageID)) return;
+            if (__instance.levelLinesContainer == null) return;
+            RoomGate.HideUnreachedRooms(__instance.levelLinesContainer, _dir, mission.HalfLevel, mission.StageID);
+        }
+    }
+
+    /// <summary>
+    /// Hard block behind the card UI: even if Play All is somehow pressed (gamepad focus, a
+    /// path that skipped our SetStageID/SetDirectory gating), a non-launchable mission refuses
+    /// to start and toasts the reason. Reads the card's private stage/directory fields.
+    /// </summary>
+    [HarmonyPatch(typeof(ChapterSelectLevelsCard), "OnPlayAllClick")]
+    public static class Patch_BlockLockedPlayAll
+    {
+        private static readonly AccessTools.FieldRef<ChapterSelectLevelsCard, LoadableStage> StageRef =
+            AccessTools.FieldRefAccess<ChapterSelectLevelsCard, LoadableStage>("stage");
+        private static readonly AccessTools.FieldRef<ChapterSelectLevelsCard, LevelFile> DirRef =
+            AccessTools.FieldRefAccess<ChapterSelectLevelsCard, LevelFile>("directory");
+
+        [HarmonyPrefix]
+        public static bool Prefix(ChapterSelectLevelsCard __instance)
+        {
+            if (!ApManager.IsActive) return true;
+            var state = ApManager.State;
+            if (state == null) return true;
+            string stageID = null, name = null;
+            var stage = StageRef(__instance);
+            if (stage != null)
+            {
+                stageID = stage.stageID;
+                name = string.IsNullOrEmpty(stage.displayName) ? stage.stageID : stage.displayName;
+            }
+            else
+            {
+                var dir = DirRef(__instance);
+                if (dir != null && ApLookup.MissionByFolder.TryGetValue(dir.folder, out var mission))
+                {
+                    stageID = mission.StageID;
+                    name = mission.Name;
+                }
+            }
+            if (stageID == null) return true;   // custom/non-AP content -> vanilla
+            var missing = state.MissingLaunchRequirements(stageID);
+            if (missing.Count == 0) return true;
+            MainMod.Logger.LogWarning($"[AP] Play All on {stageID} blocked: missing {string.Join(", ", missing.ToArray())}.");
+            ApManager.ToastInfo($"{name} is locked -- missing: {string.Join(", ", missing.ToArray())}");
+            return false;
         }
     }
 

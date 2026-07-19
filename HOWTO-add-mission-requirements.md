@@ -120,15 +120,16 @@ ability and/or a second wizard. Add those in `tools/generate_ap_data.py` too.
 | `UnlockChainShock`     | Chain Bolt      | Jen |
 | `UnlockGhostShot`      | Spectral Skull  | Banks |
 | `UnlockTransference`   | Transference    | Banks |
-| `UnlockDeathsFloor`    | Death's Floor   | Banks |
 | `UnlockCrowdGrenade`   | Spore Grenade   | Rion |
 | `Unlock_ChainShockSuperchain` | ChainShock Superchain (Jen dream) | Jen |
-| `Unlock_DeathsFloor`   | Death's Floor superchain (Banks dream) | Banks |
+| `Unlock_DeathsFloor`   | Death's Floor (Banks dream) | Banks |
 | `Unlock_SwapWithoutLOS`| Swap w/o LOS (Dall dream) | Dall |
 | `Unlock_SporeIntelligent` | Smart Spores (Rion dream) | Rion |
 
 (The plain `Unlock…` names without the underscore are the base-kit abilities; the
-`Unlock_…` ones with the underscore are the four dream "superchain" specials.)
+`Unlock_…` ones with the underscore are the four dream specials. Death's Floor is the
+dream item `Unlock_DeathsFloor` — the game's duplicate base-kit grant `UnlockDeathsFloor`
+was RETIRED from the pool 2026-07-19 and the generator will refuse a requirement naming it.)
 
 ## 1. Ability needed to COMPLETE a chapter
 
@@ -145,8 +146,25 @@ Heroes-to-complete still go in `FIRM_REQUIRED` (those gate the whole mission).
 
 ## 2. Ability / extra hero needed for a specific CONFIDENCE GOAL
 
+### Automatic: goals named after an ability
+
+Goals whose **type name contains an ability** are gated **automatically** — no entry needed.
+`DefenestrateWithGaleGoal` requires Gale Grenade (and Jen), `PredictiveShotGoal` requires
+Predictive Bolt (and Zan), `GhostShotHitGoal` requires Spectral Skull (and Banks), etc. —
+every copy of the goal, in every level. The name→ability map is
+`GOAL_NAME_ABILITY_TOKENS` in the generator; it covers all base-kit ability items
+(PredictiveShot, TimeBoost, FalseProphet, Broom, Gale, ChainShock, GhostShot, Transference,
+DeathsFloor, SporeBomb). The generator prints an "Ability-gated confidence goals" summary
+each run so you can see what it caught. Goals about innate kit (RabidBite, Swap, Charge,
+RiotBlock, Scapegoat, Resurrect…) need no ability item, so they're deliberately not mapped.
+
+### Manual: everything the name doesn't say
+
 `GOAL_REQUIREMENTS`, keyed by `"<level>|<goalName>"` (the level path and goal name — find
-them in `tools/ap_data.json`, or in the goal's location key `goal:<level>|<goalName>|<n>`):
+them in `tools/ap_data.json`). Pasting the goal's full location key
+`goal:<level>|<goalName>|<n>` straight from `ap_data.json` also works (the `goal:` prefix
+and ordinal are stripped automatically). Manual entries **merge with** any auto-detected
+abilities:
 
 ```python
 GOAL_REQUIREMENTS = {
@@ -180,6 +198,25 @@ a `totalAbilities` entry here only raises it, never lowers. The generator errors
 would need more abilities than its room's wizards can field. While any such gate exists, all
 base-kit ability items are classified progression (the gate may need any of them).
 
+## 2b. The finale capstone (all characters to PLAY, all abilities to WIN)
+
+Two layers, deliberately different:
+
+- **All 5 characters** are a real *physical* requirement — the Roof auto-spawns the whole
+  squad — so they live in `FIRM_REQUIRED["Game_Finale_Roof"]` like any other mission
+  requirement (gates entering/playing the mission and all its checks).
+- **All 14 ability items** are required to **WIN** via `GOAL_REQUIRES_ALL_ABILITIES` (and
+  `GOAL_REQUIRES_ALL_CHARACTERS`, redundant but harmless) in the generator. These gate the
+  apworld's completion condition only — do NOT express the ability capstone by adding all
+  14 abilities to the Roof's `FIRM_REQUIRED_ABILITIES`: that poisons the whole Roof region
+  for the fill (its locations then can't hold any gated item) and seeds fail to generate.
+
+Related: the apworld's `generate_early` marks two extra valid-opener mission accesses as
+`early_items` — without that, a single-room opener gives the fill a one-location sphere 0
+and ~15% of generations failed regardless of any capstone. If you ever loosen/tighten the
+opening, re-run a batch of real `ArchipelagoGenerate.exe` seeds (close stdin: failures
+block on "Press enter"), not just `test_world.py`.
+
 ## 3. Requirements for a mission's HALFWAY checkpoint
 
 Every multi-room mission has a **halfway** location (`Halfway: <name>`) that fires partway
@@ -188,6 +225,11 @@ Warlock) have none. By default a halfway check only needs you to *reach* the mis
 mission-access item + act gate + that mission's firm `FIRM_REQUIRED` characters) — it does
 **not** inherit the mission's completion abilities or perk gate, which is what makes it an
 easy, early check.
+
+**Single-room missions** (The Traffic Warlock, Achievable Dreams, The Pyromancer, Setting
+Jodasa Straight, Kennedy Calls, Cornered) have no halfway location, so a `HALF_REQUIRED*`
+entry for them has nothing to attach to — put their requirements in `FIRM_REQUIRED` /
+`FIRM_REQUIRED_ABILITIES` instead.
 
 To add logic to a halfway check specifically, use the two new dicts in
 `tools/generate_ap_data.py` (same shape as `FIRM_REQUIRED` / `FIRM_REQUIRED_ABILITIES`):
@@ -209,6 +251,46 @@ HALF_REQUIRED_ABILITIES = {
   and perk gate. You never re-list a half requirement on the full check; it's folded in.
 - Leave a mission out of both dicts to keep its halfway check requirement-free (just reach
   the mission) — this is the point of the feature: lots of easy early checks.
+
+## 4. OR gates: obstacles with several sufficient solutions
+
+When an obstacle can be solved by **any one of several** wizard/ability combos (instead of
+needing everything at once), use `FIRM_REQUIRED_ANY` / `HALF_REQUIRED_ANY` in
+`tools/generate_ap_data.py`. Each entry is a list of **alternatives**; an alternative is a
+list mixing internal character names and ability savenames (same tables as above), **all**
+of which that alternative needs. The check is satisfied as soon as **one whole alternative**
+is held.
+
+```python
+FIRM_REQUIRED_ANY = {
+    # The Recording: cross the gap to finish -- Dall alone, OR Banks + Death's Floor,
+    # OR Jen + Broom Breach.
+    "Game_The_Recording": [
+        ["RiotPriest"],
+        ["NecroMedic", "Unlock_DeathsFloor"],
+        ["WitchCop", "UnlockBroomBreach"],
+    ],
+}
+```
+
+- `FIRM_REQUIRED_ANY` gates the mission's **completion** check (like
+  `FIRM_REQUIRED_ABILITIES`: you can still launch/enter the mission).
+- `HALF_REQUIRED_ANY` gates the **halfway** checkpoint, and — like every half
+  requirement — is automatically folded into the full completion too. Same single-room
+  caveat as the other `HALF_*` knobs: single-room missions have no halfway check, so use
+  the FIRM variant there.
+- Rare case — a mission with **two independent OR-obstacles**: wrap each in its own list
+  (`"Game_X": [[altA1, altA2], [altB1, altB2]]`). Every group must then have one
+  alternative satisfied. A plain list of alternatives, as above, is treated as one group.
+- Typos fail loudly at generation: a misspelled character name is treated as an ability
+  savename and rejected against the real item list.
+- The random starting mission logic knows about these gates: a mission only stays in the
+  opener pool for a given start hero if every group has an ability-free alternative that
+  hero alone satisfies (e.g. The Recording remains a possible opener only for a Dall start,
+  if it qualified otherwise).
+
+Apply with the same 3 steps as above (regenerate → test → rebuild the apworld); the mod
+doesn't need rebuilding.
 
 ## Notes
 

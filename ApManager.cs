@@ -254,15 +254,14 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
             {
                 GUILayout.BeginHorizontal();
                 GUILayout.Label($"[Act {m.Act + 1}] {m.Name}", GUILayout.Width(330));
-                bool unlocked = _state.IsMissionUnlocked(m.StageID);
                 if (!IsActive)
                     GUILayout.Label("(offline)");
-                else if (unlocked)
+                else if (_state.IsMissionLaunchable(m.StageID))
                 {
                     if (GUILayout.Button("Play", GUILayout.Width(90))) LaunchMission(m);
                 }
                 else
-                    GUILayout.Label("locked", GUILayout.Width(90));
+                    GUILayout.Label("needs " + string.Join(", ", _state.MissingLaunchRequirements(m.StageID).ToArray()));
                 GUILayout.EndHorizontal();
             }
             GUILayout.EndScrollView();
@@ -283,6 +282,15 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
         {
             try
             {
+                // Hard guard behind every launch surface (finale needs the full squad, dreams
+                // need their wizard, the tutorial needs Zan).
+                if (!_state.IsMissionLaunchable(m.StageID))
+                {
+                    string missing = string.Join(", ", _state.MissingLaunchRequirements(m.StageID).ToArray());
+                    MainMod.Logger.LogWarning($"[AP] Launch of {m.StageID} blocked: missing {missing}.");
+                    AddToast(new ApNotice(ApNoticeKind.Info, $"{m.Name} is locked -- missing: {missing}"));
+                    return;
+                }
                 MainMod.Logger.LogInfo($"[AP] Hub launching mission {m.StageID} (folder '{m.Folder}')");
                 _hubVisible = false;
                 _gameStarted = true;  // launching a mission means we're in a game -> allow grants
@@ -651,7 +659,12 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
             // RECRUIT_OVERRIDE moves like Banks recruiting at The Blacksite).
             if (ApData.RecruitByMission.TryGetValue(stageID, out string recruited))
                 ReportRecruit(recruited);
-            if (stageID == "Game_Finale_Roof" && IsActive)
+            // A dream's completion is also its PerkUnlock reward point: vanilla runs the
+            // PerkUnlock stage right after the dream, but the AP hub plays missions via
+            // flashback where that stage never runs -- so fire the ability-unlock check here.
+            if (ApData.AbilityUnlockByMission.TryGetValue(stageID, out string abilityStage))
+                ReportAbilityUnlock(abilityStage);
+            if (stageID == ApData.GoalStageID && IsActive)
                 Instance._client.SendGoal();
         }
 
@@ -674,11 +687,27 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
         public static void ReportMissionHalf(string stageID)
             => Instance?.Send(ApLookup.MissionHalfId(stageID), "missionhalf:" + stageID);
 
+        /// <summary>Whether this mission's Halfway checkpoint has been registered with AP -- locally
+        /// this session, or on the server (survives reconnects and fresh game saves). Single-room
+        /// missions have no half location and always return false. Drives the "resume from halfway"
+        /// room reveal on the mission level card.</summary>
+        public static bool IsMissionHalfReached(string stageID)
+        {
+            if (Instance == null) return false;
+            long? loc = ApLookup.MissionHalfId(stageID);
+            if (loc == null) return false;
+            return Instance._sentChecks.Contains(loc.Value) || Instance._client.IsLocationChecked(loc.Value);
+        }
+
         public static void ReportConfidenceGoal(string level, string goalName, int ordinal)
             => Instance?.Send(ApLookup.ConfidenceGoalId(level, goalName, ordinal), $"goal:{level}|{goalName}|{ordinal}");
 
         public static void ReportAbilityUnlock(string stageID)
-            => Instance?.Send(ApLookup.AbilityUnlockId(stageID), "ability:" + stageID);
+            => Instance?.Send(ApLookup.AbilityUnlockId(stageID), "abilityloc:" + stageID);
+
+        /// <summary>Show an Info toast (used by patches for player-facing lock messages).</summary>
+        public static void ToastInfo(string text)
+            => Instance?.AddToast(new ApNotice(ApNoticeKind.Info, text));
 
         public static void ReportRecruit(string internalName)
             => Instance?.Send(ApLookup.RecruitId(internalName), "recruit:" + internalName);

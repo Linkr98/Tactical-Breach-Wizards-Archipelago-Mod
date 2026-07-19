@@ -48,4 +48,36 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
             return true;
         }
     }
+
+    /// <summary>
+    /// Unlocks perk respec from the start while connected to AP. Vanilla allows unlimited free
+    /// perk refunds only after the campaign is complete (CanPayForPerkRefund falls back to
+    /// Managers.Stage.LastStageCompleted when no banked respec points remain); in AP the campaign
+    /// is never "complete" in the game's eyes, and perk points arrive as items the player should
+    /// be free to re-plan around. Forcing the pay-check on gives exactly the post-game behavior;
+    /// everything else still applies (full perks screen only, purchased tree perks only, and a
+    /// perk that other acquired perks depend on can't be refunded first).
+    /// </summary>
+    [HarmonyPatch(typeof(PerkPurchaseButton), "CanPayForPerkRefund", MethodType.Getter)]
+    public static class Patch_FreePerkRespec
+    {
+        [HarmonyPostfix]
+        public static void Postfix(ref bool __result)
+        {
+            if (ApManager.IsActive) __result = true;
+        }
+    }
+
+    /// <summary>
+    /// Freezes the banked respec-point counter while refunds are unlimited. The refund flow
+    /// debits it (going negative once forced refunds bypass the balance) and vanilla level-up
+    /// beats credit it -- either would leave a meaningless "N Perk Refunds available" banner in
+    /// the perks screen, which reads as a limit that no longer exists.
+    /// </summary>
+    [HarmonyPatch(typeof(PerkManager), "AddRespecPoints")]
+    public static class Patch_FreezeRespecPoints
+    {
+        [HarmonyPrefix]
+        public static bool Prefix() => !ApManager.IsActive;
+    }
 }

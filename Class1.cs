@@ -11,7 +11,7 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
     {
         public const string PluginGuid = "com.lincoln.tbwap";
         public const string PluginName = "Tactical Breach Wizards Archipelago";
-        public const string PluginVersion = "0.16.0";
+        public const string PluginVersion = "0.20.0";
 
         internal static MainMod Instance;
         internal static new ManualLogSource Logger;
@@ -40,6 +40,7 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
 
             var harmony = new Harmony(PluginGuid);
             harmony.PatchAll();
+            SocketCompressionPatch.Apply(harmony);
 
             ApManager.EnsureExists();
 

@@ -7,6 +7,10 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
     public static class ApData
     {
         public const long Base = 271828000;
+        // Victory mission. The mod refuses to launch it until every playable character
+        // is unlocked (the finale auto-spawns the full squad), mirroring the apworld's
+        // region gate. See ApState.IsMissionLaunchable.
+        public const string GoalStageID = "Game_Finale_Roof";
 
         public struct ItemDef { public long Id; public string Name; public string Key; public string Category; public string Classification; }
         public struct LocDef  { public long Id; public string Name; public string Key; public string Category; }
@@ -49,7 +53,7 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
             new ItemDef { Id = 271829127, Name = "Mission Access: Counterheist: The Mines", Key = "missionaccess:Game_Finale_Mines", Category = "mission_access", Classification = "progression" },
             new ItemDef { Id = 271829128, Name = "Mission Access: Counterheist: The Roof", Key = "missionaccess:Game_Finale_Roof", Category = "mission_access", Classification = "progression" },
             new ItemDef { Id = 271829300, Name = "Ability: Unlock_ChainShockSuperchain", Key = "ability:Unlock_ChainShockSuperchain", Category = "ability", Classification = "progression" },
-            new ItemDef { Id = 271829301, Name = "Ability: Unlock_DeathsFloor", Key = "ability:Unlock_DeathsFloor", Category = "ability", Classification = "progression" },
+            new ItemDef { Id = 271829301, Name = "Ability: Death's Floor (Banks)", Key = "ability:Unlock_DeathsFloor", Category = "ability", Classification = "progression" },
             new ItemDef { Id = 271829302, Name = "Ability: Unlock_SwapWithoutLOS", Key = "ability:Unlock_SwapWithoutLOS", Category = "ability", Classification = "progression" },
             new ItemDef { Id = 271829303, Name = "Ability: Unlock_SporeIntelligent", Key = "ability:Unlock_SporeIntelligent", Category = "ability", Classification = "progression" },
             new ItemDef { Id = 271829304, Name = "Ability: Predictive Bolt (Zan)", Key = "ability:seerOverwatch", Category = "ability", Classification = "progression" },
@@ -60,7 +64,7 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
             new ItemDef { Id = 271829309, Name = "Ability: Chain Bolt (Jen)", Key = "ability:UnlockChainShock", Category = "ability", Classification = "progression" },
             new ItemDef { Id = 271829310, Name = "Ability: Spectral Skull (Banks)", Key = "ability:UnlockGhostShot", Category = "ability", Classification = "progression" },
             new ItemDef { Id = 271829311, Name = "Ability: Transference (Banks)", Key = "ability:UnlockTransference", Category = "ability", Classification = "progression" },
-            new ItemDef { Id = 271829312, Name = "Ability: Death's Floor (Banks)", Key = "ability:UnlockDeathsFloor", Category = "ability", Classification = "progression" },
+            new ItemDef { Id = 271829312, Name = "Ability: Death's Floor (Banks) [Legacy]", Key = "ability:UnlockDeathsFloor", Category = "ability", Classification = "useful" },
             new ItemDef { Id = 271829313, Name = "Ability: Spore Grenade (Rion)", Key = "ability:UnlockCrowdGrenade", Category = "ability", Classification = "progression" },
             new ItemDef { Id = 271829400, Name = "Perk Point: Zan", Key = "perkpoint:NavySeer", Category = "perk_point", Classification = "progression" },
             new ItemDef { Id = 271829401, Name = "Perk Point: Jen", Key = "perkpoint:WitchCop", Category = "perk_point", Classification = "progression" },
@@ -381,6 +385,46 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
             { "Game_Liboli_Intro", "NecroMedic" },
             { "Game_Streets", "RiotPriest" },
             { "Game_Siege_Cleric", "Druid" },
+        };
+
+        // internal character name -> in-game display name.
+        public static readonly Dictionary<string, string> CharacterDisplayNames = new Dictionary<string, string>
+        {
+            { "NavySeer", "Zan" },
+            { "WitchCop", "Jen" },
+            { "NecroMedic", "Banks" },
+            { "RiotPriest", "Dall" },
+            { "Druid", "Rion" },
+        };
+
+        // stageID -> characters that must be UNLOCKED before the mod lets you LAUNCH the
+        // mission: only wizards the mission AUTO-GIVES you to control (scripted casts,
+        // dream squads). Progress-only requirements don't block launch. See
+        // ApState.IsMissionLaunchable.
+        public static readonly Dictionary<string, string[]> LaunchRequiredCharacters = new Dictionary<string, string[]>
+        {
+            { "Game_Prologue", new[] { "NavySeer" } },
+            { "Game_Witch_Intro", new[] { "NavySeer", "WitchCop" } },
+            { "Game_Liboli_Intro", new[] { "NavySeer" } },
+            { "Game_Lucid_Dream_Jen", new[] { "WitchCop" } },
+            { "Game_Streets", new[] { "RiotPriest" } },
+            { "Game_Flashback", new[] { "NavySeer" } },
+            { "Game_Lucid_Dream_Banks", new[] { "NavySeer", "WitchCop", "NecroMedic", "RiotPriest", "Druid" } },
+            { "Game_Lucid_Dream_Dall", new[] { "RiotPriest" } },
+            { "Game_Lucid_Dream_Rion", new[] { "Druid" } },
+            { "Game_Lucid_Dream_Zan", new[] { "NavySeer", "WitchCop" } },
+            { "Game_Finale_Mines", new[] { "WitchCop", "RiotPriest" } },
+            { "Game_Finale_Roof", new[] { "NavySeer", "WitchCop", "NecroMedic", "RiotPriest", "Druid" } },
+        };
+
+        // dream mission stageID -> PerkUnlock stageID whose ability-unlock location
+        // fires when that dream mission completes.
+        public static readonly Dictionary<string, string> AbilityUnlockByMission = new Dictionary<string, string>
+        {
+            { "Game_Lucid_Dream_Jen", "Unlock_ChainShockSuperchain" },
+            { "Game_Lucid_Dream_Banks", "Unlock_DeathsFloor" },
+            { "Game_Lucid_Dream_Dall", "Unlock_SwapWithoutLOS" },
+            { "Game_Lucid_Dream_Rion", "Unlock_SporeIntelligent" },
         };
     }
 }
