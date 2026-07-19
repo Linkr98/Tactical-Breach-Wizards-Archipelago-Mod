@@ -71,16 +71,16 @@ BASE_ABILITIES = [
 # blocking their vanilla grantPerk and can still apply them if an OLD seed sends one), but
 # new pools never place them and logic may never reference them (the generator errors if a
 # requirement knob names one). UnlockDeathsFloor retired 2026-07-19: the dream item
-# ability:Unlock_DeathsFloor is THE Death's Floor item now -- it takes over the friendly
-# name and counts as part of Banks's base kit (baseKit flag) for the team-ability count and
-# the missing-kit perk penalty, exactly like the retired copy used to.
+# ability:Unlock_DeathsFloor is THE Death's Floor item now. It stays a pure DREAM REWARD
+# (project owner, 2026-07-19) -- NOT part of Banks's base kit: her kit is Spectral Skull +
+# Transference (Death's Door is innate), so Death's Floor is treated like the other dream
+# specials (+1 perk power when held; no team-ability-count or missing-kit-penalty role).
 RETIRED_ABILITY_SAVENAMES = {"UnlockDeathsFloor"}
 
-# Dream (PerkUnlock) specials that stand in for a base-kit ability: stageID -> (item display
-# name, owning internal character). These get the baseKit flag and a friendly name instead of
-# the raw "Ability: Unlock_X" stage name. Currently only Death's Floor (the other three
-# specials are pure upgrades to an existing ability, not abilities of their own).
-SPECIAL_ABILITY_BASEKIT = {
+# Friendly display names (and owning wizard, for goal auto-requirements) for dream
+# (PerkUnlock) specials that players see as a real ability rather than an internal stage
+# name. Currently only Death's Floor, which absorbed the retired base-kit duplicate's name.
+SPECIAL_ABILITY_NAMES = {
     "Unlock_DeathsFloor": ("Ability: Death's Floor (Banks)", "NecroMedic"),
 }
 
@@ -290,7 +290,7 @@ GOAL_NAME_ABILITY_TOKENS = {
     # DeathsDoorWarlockGoal in GOAL_REQUIREMENTS) is the whole gate.
 }
 _ABILITY_OWNER = {sv: ch for sv, _label, ch in BASE_ABILITIES}
-_ABILITY_OWNER.update({sv: ch for sv, (_label, ch) in SPECIAL_ABILITY_BASEKIT.items()})
+_ABILITY_OWNER.update({sv: ch for sv, (_label, ch) in SPECIAL_ABILITY_NAMES.items()})
 
 def goal_auto_requirements(goal_name):
     """(ability savenames, owning internal characters) implied by the goal type's name."""
@@ -595,15 +595,16 @@ def build(d):
         add_item("mission_access", i, f"Mission Access: {m['name']}",
                  f"missionaccess:{m['stageID']}", "progression",
                  {"stageID": m["stageID"]})
-    # items: abilities (PerkUnlock specials) -- ids +1300..+1304 (frozen). A special that
-    # stands in for a base-kit ability (SPECIAL_ABILITY_BASEKIT: Death's Floor) gets the
-    # friendly name plus the baseKit/character flags so the apworld counts it in Banks's kit.
+    # items: abilities (PerkUnlock specials) -- ids +1300..+1304 (frozen). A special with a
+    # SPECIAL_ABILITY_NAMES entry (Death's Floor) gets a friendly display name + its owning
+    # wizard; it stays a plain dream special (NO baseKit flag -- no team-ability-count or
+    # missing-kit-penalty role, just the usual +1 dream perk power when held).
     for i, ab in enumerate(abilities):
         sid = ab["stageID"]
-        if sid in SPECIAL_ABILITY_BASEKIT:
-            label, ch = SPECIAL_ABILITY_BASEKIT[sid]
+        if sid in SPECIAL_ABILITY_NAMES:
+            label, ch = SPECIAL_ABILITY_NAMES[sid]
             add_item("ability", i, label, f"ability:{sid}", "progression",
-                     {"stageID": sid, "character": ch, "baseKit": True})
+                     {"stageID": sid, "character": ch})
         else:
             add_item("ability", i, f"Ability: {sid}",
                      f"ability:{sid}", "progression", {"stageID": sid})

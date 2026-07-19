@@ -1255,8 +1255,7 @@
       "category": "ability",
       "classification": "progression",
       "stageID": "Unlock_DeathsFloor",
-      "character": "NecroMedic",
-      "baseKit": true
+      "character": "NecroMedic"
     },
     {
       "id": 271829302,
