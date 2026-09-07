@@ -36,8 +36,9 @@ hand-edit the generated files (more below).
 - **Checks you send:** completing a mission (29), reaching a mission's halfway room (23),
   in-mission confidence goals (154), buying outfits (23), recruiting a wizard (5), and
   the 4 dream ability-unlock rewards. **238 total.**
-- **Start:** one random wizard (with their base kit and 1 perk point) + a random early
-  mission. **Goal:** complete "Counterheist: The Roof" — and *winning* it additionally
+- **Start:** one wizard (with their base kit and 1 perk point) + a random early mission.
+  The wizard is picked by the `starting_hero` yaml option — a specific one or `random`
+  (the default). **Goal:** complete "Counterheist: The Roof" — and *winning* it additionally
   requires the full roster and every ability item (a 100%-your-kit capstone; it gates
   the victory condition only, never fill).
 - The game's story progression is otherwise suppressed: every session is "new game"-like
@@ -84,6 +85,34 @@ hand-edit the generated files (more below).
   `bin\Release\` and BepInEx would load the plugin twice.
 - Bump `PluginVersion` in `Class1.cs` when you release a change.
 - Logs: `BepInEx\LogOutput.log` (and the BepInEx console if enabled).
+
+## Packaging a release (what goes in the zip)
+
+The release zip is exactly the **four files** a player drops into a folder under
+`BepInEx\plugins\` (matching the install list in [README.md](README.md)):
+
+| File | Take it from |
+|---|---|
+| `Tactical Breach Wizards Archipelago Mod.dll` | `bin\Debug\` (fresh build — see above) |
+| `Archipelago.MultiClient.Net.dll` | `bin\Debug\` (auto-copied from `lib\`; the **net40** build — see SocketCompressionPatch) |
+| `websocket-sharp.dll` | `bin\Debug\` (auto-copied from `lib\`) |
+| `ap_icon.png` | `bin\Debug\` (auto-copied from the repo root) |
+
+Optionally include `README.md` (the player install/play instructions) in the zip too.
+
+Do **NOT** include:
+
+- `Tactical Breach Wizards Archipelago Mod.pdb` — debug symbols, players don't need them;
+- `tbw_ap_dump.json` — dev-only data dump that can end up in `bin\Debug\`;
+- anything from `bin\Release\` — stale (the project is built as Debug only, see above).
+
+Checklist before zipping: bump `PluginVersion` in `Class1.cs` → rebuild → grab the four
+files from `bin\Debug\`. The **apworld is released separately** (it goes to Archipelago
+installs, not the game): rebuild it with `build_apworld.py` and ship
+`custom_worlds\tactical_breach_wizards.apworld` via the
+[apworld repo](https://github.com/Linkr98/tactical_breach_wizards_apworld) — the mod DLL
+and the apworld must come from the same contract (`ApData.cs` / `ap_data.json`
+regenerated together) or ids/names can drift.
 
 ## File-by-file guide (C# mod)
 

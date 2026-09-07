@@ -34,15 +34,23 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
     public static class Patch_ChapterReplayShowApUnlocked
     {
         [HarmonyPostfix]
-        public static void Postfix(ChapterSelectPanel __instance)
+        public static void Postfix(ChapterSelectPanel __instance) => Refresh(__instance);
+
+        /// <summary>
+        /// Re-applies AP lock/unlock visuals to the live board without rebuilding it. Called on
+        /// panel activation and again whenever AP items arrive while the board is open (see
+        /// <see cref="RefreshIfOpen"/>), so a mission access item (or a wizard the mission needs)
+        /// received mid-menu flips its polaroid from silhouette to real photo immediately.
+        /// </summary>
+        public static void Refresh(ChapterSelectPanel panel)
         {
-            if (!ApManager.IsActive || !__instance.ChapterSelect) return;
+            if (panel == null || !ApManager.IsActive || !panel.ChapterSelect) return;
             var state = ApManager.State;
-            if (state == null || __instance.chapterLines == null) return;
+            if (state == null || panel.chapterLines == null) return;
             try
             {
                 int shown = 0;
-                foreach (var line in __instance.chapterLines)
+                foreach (var line in panel.chapterLines)
                 {
                     if (line?.polaroids == null) continue;
                     bool revealedInLine = false;
@@ -60,6 +68,12 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
                         // missing.
                         pol.isCompleted = state.IsMissionLaunchable(pol.myStage.stageID);
                         pol.Show(false);
+                        // Show() only ever turns the "unreached" overlay ON (vanilla missions never
+                        // go from locked back to unlocked on a live board), so a polaroid first drawn
+                        // as a silhouette would stay one after its access item arrives. Force the
+                        // overlay to track launchability in both directions.
+                        if (pol.unreachedPhoto != null)
+                            pol.unreachedPhoto.SetActive(!pol.isCompleted);
                         revealedInLine = true;
                         shown++;
                     }
@@ -81,6 +95,26 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
             catch (System.Exception e)
             {
                 MainMod.Logger.LogWarning($"[AP] ChapterSelect populate error: {e.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Refreshes the replay board if it is currently on screen. The board only repaints on
+        /// activation, so without this an item received while sitting in mission select (or in the
+        /// perks/outfits tabs, which don't rebuild it on return) wouldn't show until the menu was
+        /// fully closed and reopened. Safe to call from the per-frame pump at any time.
+        /// </summary>
+        public static void RefreshIfOpen()
+        {
+            try
+            {
+                var panel = MenuHelper.chapterSelectPanel;
+                if (panel == null || !panel.IsActive) return;
+                Refresh(panel);
+            }
+            catch (System.Exception e)
+            {
+                MainMod.Logger.LogWarning($"[AP] ChapterSelect refresh error: {e.Message}");
             }
         }
 
@@ -313,10 +347,12 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
     }
 
     /// <summary>
-    /// Renames each outfit entry in the shop to the AP item its purchase releases (from the scouted
-    /// data filled in by <see cref="Patch_OutfitShopOpened"/>). Runs in the entry's per-frame Update so
-    /// the label updates as soon as the async scout returns, and stays correct across selection changes.
-    /// Free defaults / DLC costumes aren't AP checks, so they keep their vanilla name.
+    /// Relabels each outfit entry in the shop as "&lt;Player&gt;, &lt;AP item&gt; (&lt;outfit&gt;)" (player + item
+    /// from the scouted data filled in by <see cref="Patch_OutfitShopOpened"/>). The vanilla outfit name
+    /// is kept (in parentheses) so the entry can be matched to its AP location name ("Buy Outfit: ...")
+    /// even when two outfits share a price and the shop's ordering differs from the location list. Runs in the entry's per-frame
+    /// Update so the label updates as soon as the async scout returns, and stays correct across
+    /// selection changes. Free defaults / DLC costumes aren't AP checks, so they keep their vanilla name.
     /// </summary>
     [HarmonyPatch(typeof(OutfitCostumeEntry), "Update")]
     public static class Patch_OutfitEntryRename
@@ -328,8 +364,10 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
             var button = __instance.costumeButton;
             if (button == null || button.myText == null) return;
             string apName = ApManager.OutfitDisplayName(__instance.character.ToString(), __instance.costume.saveName);
-            if (apName != null && button.myText.text != apName)
-                button.myText.text = apName;
+            if (apName == null) return;
+            string label = $"{apName} ({__instance.costume.displayName})";
+            if (button.myText.text != label)
+                button.myText.text = label;
         }
     }
 }

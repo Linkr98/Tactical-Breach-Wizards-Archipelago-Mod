@@ -112,6 +112,9 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
             {
                 if (_gameStarted) SyncAll();
                 else MainMod.Logger.LogInfo("[AP] Item(s) received at menu — held until a game is started.");
+                // Mission/character unlocks live in ApState (applied above, not held), so the replay
+                // board can repaint right away if it's on screen -- it only redraws on activation.
+                Patch_ChapterReplayShowApUnlocked.RefreshIfOpen();
             }
 
             while (_client.IncomingDeaths.TryDequeue(out string cause))
@@ -367,10 +370,25 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
         private void ApplySlotData(Dictionary<string, object> slot)
         {
             if (slot.TryGetValue("death_link", out var dl)) _state.DeathLink = System.Convert.ToBoolean(dl);
-            if (slot.TryGetValue("confidence_per_boost", out var cpb)) _state.ConfidencePerBoost = System.Convert.ToInt32(cpb);
+            // Legacy seeds: a single flat per-boost value for every wizard.
+            if (slot.TryGetValue("confidence_per_boost", out var cpb)) _state.DefaultConfidencePerBoost = System.Convert.ToInt32(cpb);
+            // Current seeds: per-wizard boost values (scale with each wizard's wardrobe cost).
+            // MultiClient.Net hands nested slot_data objects back as Newtonsoft JObjects.
+            if (slot.TryGetValue("confidence_boost_values", out var cbv))
+            {
+                if (cbv is Newtonsoft.Json.Linq.JObject jo)
+                    foreach (var prop in jo.Properties())
+                        _state.ConfidenceBoostValues[prop.Name] = (int)prop.Value;
+                else if (cbv is Dictionary<string, object> dict)
+                    foreach (var kv in dict)
+                        _state.ConfidenceBoostValues[kv.Key] = System.Convert.ToInt32(kv.Value);
+            }
             if (slot.TryGetValue("start_character", out var sc)) _state.StartCharacter = sc?.ToString();
             if (slot.TryGetValue("start_mission", out var sm)) _state.StartMission = sm?.ToString();
-            MainMod.Logger.LogInfo($"[AP] slot_data: deathlink={_state.DeathLink} confPerBoost={_state.ConfidencePerBoost} startChar={_state.StartCharacter} startMission={_state.StartMission}");
+            string boosts = _state.ConfidenceBoostValues.Count > 0
+                ? string.Join(",", System.Linq.Enumerable.Select(_state.ConfidenceBoostValues, kv => kv.Key + "=" + kv.Value))
+                : $"flat {_state.DefaultConfidencePerBoost}";
+            MainMod.Logger.LogInfo($"[AP] slot_data: deathlink={_state.DeathLink} confBoostValues=[{boosts}] startChar={_state.StartCharacter} startMission={_state.StartMission}");
         }
 
         // ----- AP confidence economy -----

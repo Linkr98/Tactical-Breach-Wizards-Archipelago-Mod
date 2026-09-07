@@ -221,10 +221,11 @@ block on "Press enter"), not just `test_world.py`.
 
 Every multi-room mission has a **halfway** location (`Halfway: <name>`) that fires partway
 through it (after the first `ceil(rooms/2)` rooms). Single-room missions (e.g. The Traffic
-Warlock) have none. By default a halfway check only needs you to *reach* the mission (its
-mission-access item + act gate + that mission's firm `FIRM_REQUIRED` characters) — it does
-**not** inherit the mission's completion abilities or perk gate, which is what makes it an
-easy, early check.
+Warlock) have none. By default a halfway check needs you to *reach* the mission (its
+mission-access item + act gate + that mission's firm `FIRM_REQUIRED` characters) **plus the
+same perk gate as the mission's completion** (`completion_perk_percent` of its recommended
+per-slot perks; anxiety dreams check their forced cast). It does **not** inherit the
+mission's completion abilities — that's what still makes it an earlier check than finishing.
 
 **Single-room missions** (The Traffic Warlock, Achievable Dreams, The Pyromancer, Setting
 Jodasa Straight, Kennedy Calls, Cornered) have no halfway location, so a `HALF_REQUIRED*`
@@ -249,8 +250,9 @@ HALF_REQUIRED_ABILITIES = {
   be finished by first getting halfway, so anything required for the half is also required
   for the whole — *on top of* that mission's own `FIRM_REQUIRED` / `FIRM_REQUIRED_ABILITIES`
   and perk gate. You never re-list a half requirement on the full check; it's folded in.
-- Leave a mission out of both dicts to keep its halfway check requirement-free (just reach
-  the mission) — this is the point of the feature: lots of easy early checks.
+- Leave a mission out of both dicts to keep its halfway check ability-free (reach the
+  mission + the perk gate) — halfway checks stay earlier than completions because they skip
+  the completion abilities, not the perk gate.
 
 ## 4. OR gates: obstacles with several sufficient solutions
 

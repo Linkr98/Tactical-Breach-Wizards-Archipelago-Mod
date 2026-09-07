@@ -21,14 +21,19 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
         public readonly Dictionary<string, int> PerkPoints = new Dictionary<string, int>();
         // Confidence-boost items received per character (internal CharacterNames -> count).
         // Once the mod blocks natural confidence earning, these are the ONLY confidence source;
-        // each is worth ConfidencePerBoost points for that character.
+        // each is worth that character's ConfidenceBoostValueFor points.
         public readonly Dictionary<string, int> ConfidenceItems = new Dictionary<string, int>();
         // Generic junk filler ("Donut") received count. No in-game effect; kept for stats/UI.
         public int FillerItems;
 
         // From slot_data.
         public bool DeathLink;
-        public int ConfidencePerBoost = 5;   // confidence granted per Confidence Boost item
+        // Per-character confidence granted by one of that character's Confidence Boost items
+        // (slot_data "confidence_boost_values"; scales with wardrobe cost so every wizard's
+        // wardrobe clears in the same number of boosts). Characters missing from the dict fall
+        // back to DefaultConfidencePerBoost -- old seeds sent a single flat int instead.
+        public readonly Dictionary<string, int> ConfidenceBoostValues = new Dictionary<string, int>();
+        public int DefaultConfidencePerBoost = 5;
         public string StartCharacter;   // internal CharacterNames
         public string StartMission;     // stageID
 
@@ -105,8 +110,11 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
         public bool IsOutfitOwned(string character, string saveName) => OwnedOutfits.Contains(character + ":" + saveName);
         public int PerkPointsFor(string internalName) => PerkPoints.TryGetValue(internalName, out var n) ? n : 0;
         public int ConfidenceItemsFor(string internalName) => ConfidenceItems.TryGetValue(internalName, out var n) ? n : 0;
+        /// <summary>Confidence granted by ONE of this character's Confidence Boost items.</summary>
+        public int ConfidenceBoostValueFor(string internalName) =>
+            ConfidenceBoostValues.TryGetValue(internalName, out var v) ? v : DefaultConfidencePerBoost;
         /// <summary>Total confidence this slot should have EARNED for a character from AP items
-        /// (item count * ConfidencePerBoost). In-game spending is separate.</summary>
-        public int ConfidenceEarnedFor(string internalName) => ConfidenceItemsFor(internalName) * ConfidencePerBoost;
+        /// (item count * that character's boost value). In-game spending is separate.</summary>
+        public int ConfidenceEarnedFor(string internalName) => ConfidenceItemsFor(internalName) * ConfidenceBoostValueFor(internalName);
     }
 }

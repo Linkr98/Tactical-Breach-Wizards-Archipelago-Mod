@@ -53,6 +53,44 @@
     "Game_Finale_Mines",
     "Game_Finale_Roof"
   ],
+  "autoGivenCharacters": {
+    "Game_Prologue": [
+      "NavySeer"
+    ],
+    "Game_Witch_Intro": [
+      "NavySeer",
+      "WitchCop"
+    ],
+    "Game_Liboli_Intro": [
+      "NavySeer"
+    ],
+    "Game_Streets": [
+      "RiotPriest"
+    ],
+    "Game_Flashback": [
+      "NavySeer"
+    ],
+    "Game_Lucid_Dream_Banks": [
+      "NavySeer",
+      "WitchCop",
+      "RiotPriest",
+      "Druid"
+    ],
+    "Game_Lucid_Dream_Zan": [
+      "WitchCop"
+    ],
+    "Game_Finale_Mines": [
+      "WitchCop",
+      "RiotPriest"
+    ],
+    "Game_Finale_Roof": [
+      "NavySeer",
+      "WitchCop",
+      "NecroMedic",
+      "RiotPriest",
+      "Druid"
+    ]
+  },
   "missions": [
     {
       "stageID": "Game_Prologue",
@@ -526,7 +564,32 @@
       ],
       "requiredCharacters": [],
       "requiredAbilities": [],
-      "requiredAnyOf": [],
+      "requiredAnyOf": [
+        [
+          {
+            "characters": [
+              "RiotPriest"
+            ],
+            "abilities": []
+          },
+          {
+            "characters": [
+              "NecroMedic"
+            ],
+            "abilities": [
+              "Unlock_DeathsFloor"
+            ]
+          },
+          {
+            "characters": [
+              "WitchCop"
+            ],
+            "abilities": [
+              "UnlockBroomBreach"
+            ]
+          }
+        ]
+      ],
       "halfRequiredAnyOf": [],
       "recruits": [],
       "levels": [

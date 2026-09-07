@@ -188,8 +188,8 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
 
         public void SendCheck(long locationId) => SendChecks(new[] { locationId });
 
-        /// <summary>The scouted display label ("ItemName" or "ItemName -> Player") for a location, or
-        /// null if it hasn't been scouted yet. Filled asynchronously by <see cref="ScoutLocations"/>.</summary>
+        /// <summary>The scouted display label ("Player, ItemName" -- receiving player first) for a
+        /// location, or null if it hasn't been scouted yet. Filled asynchronously by <see cref="ScoutLocations"/>.</summary>
         public bool TryGetScoutedName(long locationId, out string name) => _scoutedNames.TryGetValue(locationId, out name);
 
         /// <summary>Scout the given locations to learn which item sits on each (for display), and
@@ -213,11 +213,10 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
                     {
                         ScoutedItemInfo info = kv.Value;
                         string label = info.ItemName ?? $"Item {info.ItemId}";
-                        if (!info.IsReceiverRelatedToActivePlayer)
-                        {
-                            string who = info.Player?.Alias ?? info.Player?.Name;
-                            if (!string.IsNullOrEmpty(who)) label += " -> " + who;
-                        }
+                        // Receiving player first ("Player, ItemName") -- shown for everyone,
+                        // including the active player's own items.
+                        string who = info.Player?.Alias ?? info.Player?.Name;
+                        if (!string.IsNullOrEmpty(who)) label = who + ", " + label;
                         _scoutedNames[kv.Key] = label;
                     }
                 });

@@ -222,6 +222,13 @@ FIRM_REQUIRED_ANY = {
         ["NecroMedic", "Unlock_DeathsFloor"],
         ["WitchCop", "UnlockBroomBreach"],
     ],
+    # The Breadcast: Need to get to the other room to open doors. Dall's innate swap does it alone; Banks
+    # needs Death's Floor; Jen needs Broom Breach.
+    "Game_The_Broadcast":[
+        ["RiotPriest"],
+        ["NecroMedic", "Unlock_DeathsFloor"],
+        ["WitchCop", "UnlockBroomBreach"],
+    ]
 }
 HALF_REQUIRED_ANY = {
 }
@@ -802,6 +809,10 @@ def build(d):
                  "requireAllCharacters": GOAL_REQUIRES_ALL_CHARACTERS,
                  "requireAllAbilities": GOAL_REQUIRES_ALL_ABILITIES},
         "missionOrder": [m["stageID"] for m in missions],
+        # Scripted squad members a mission auto-gives (same knob that drives the mod's
+        # LaunchRequiredCharacters). The apworld uses it to build each anxiety dream's FULLY
+        # scripted cast (dream wizard + these extras) for the forced-cast perk gate.
+        "autoGivenCharacters": AUTO_GIVEN_CHARACTERS,
         "missions": missions,
         "items": list(items.values()),
         "locations": list(locations.values()),
