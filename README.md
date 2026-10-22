@@ -74,7 +74,7 @@ Good to know:
 - The mod logs to `BepInEx\LogOutput.log` — look for
   `Tactical Breach Wizards Archipelago` lines to confirm it loaded.
 - If the connect dialog never appears, press **F9**; if that does nothing, the mod
-  didn't load — check that all three files from step 2 are in `BepInEx\plugins\` and
+  didn't load — check that all four files from step 2 are in `BepInEx\plugins\` and
   that BepInEx itself is running (the log file exists and is fresh).
 
 ## AI Disclosure
