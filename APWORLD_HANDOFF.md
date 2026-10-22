@@ -206,10 +206,16 @@ abilities, perk points). Keep logic simple.
 ## 8. Client ↔ apworld contract
 
 - **slot_data** sent on connect:
-  `{"death_link": <bool>, "goal": "finale_roof", "confidence_per_boost": <int>,
-  "start_character": <internal>, "start_mission": <stageID>}`. `confidence_per_boost` is
-  required so the client knows how much confidence to grant per Confidence Boost item. The
-  client also learns precollected items through the normal **ReceivedItems** flow.
+  `{"options": {<yaml option name>: <value>}, "death_link": <bool>, "goal": "finale_roof",
+  "confidence_boost_values": {<internal>: <int>}, "start_character": <internal>,
+  "start_mission": <stageID>}`. `confidence_boost_values` is required so the client knows how
+  much confidence each wizard's Confidence Boost item grants (old seeds sent a flat
+  `confidence_per_boost` int instead; the client still accepts it). `options` mirrors every
+  logic-relevant yaml option (Choice options by key, e.g. `"starting_hero": "jen"`) and, with
+  `start_mission`, is what Universal Tracker's regen reads back (`generate_early` restores
+  them from `multiworld.re_gen_passthrough`; `interpret_slot_data` is the static UT hook and
+  `ut_can_gen_without_yaml = True` means no yaml is needed). The client also learns
+  precollected items through the normal **ReceivedItems** flow.
 - The client reports completion by sending a **location check** for `mission:Game_Finale_Roof`;
   it also sets the AP **goal/Completed** status. You only need to mark that location as the
   victory condition in logic.
