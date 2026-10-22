@@ -10,6 +10,11 @@ Archipelago server side (installing the apworld, YAML options, generating a
 multiworld) is documented in the apworld repo:
 **[Linkr98/tactical_breach_wizards_apworld](https://github.com/Linkr98/tactical_breach_wizards_apworld)**
 
+**Version 0.2.0** — tested on Archipelago 0.6.8. Use with the matching 0.2.0 apworld.
+
+> **This project is no longer actively maintained.** It's shared as-is; issues may not
+> get answered. Forks and continuations are welcome.
+
 ---
 
 ## Requirements
