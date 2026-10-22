@@ -36,6 +36,12 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
         public int DefaultConfidencePerBoost = 5;
         public string StartCharacter;   // internal CharacterNames
         public string StartMission;     // stageID
+        // Location ids this seed did NOT create (optional checks turned off in the yaml, e.g.
+        // the Armoury caches goal via `armoury_caches_goal`). Doing the deed in-game is fine;
+        // we just never report it, so no phantom check is logged for a location the server
+        // would silently drop anyway.
+        public readonly HashSet<long> ExcludedLocations = new HashSet<long>();
+        public bool IsLocationExcluded(long locationId) => ExcludedLocations.Contains(locationId);
 
         /// <summary>Apply one received AP item (by id) to the derived state. Returns the
         /// item key applied, or null if the id is unknown.</summary>

@@ -429,6 +429,32 @@ def level_int_param(level, param):
         pass
     return 0
 
+def level_display_name(level):
+    """User-facing room label for a level, matching the in-game level card ("N. Room Name"):
+    the leading number from the .lvl filename plus the LevelHeader `name =` value (falls back
+    to the filename stem, exactly as ChapterSelectLevelLine does when the header is blank)."""
+    fname = level.split("/")[-1]
+    stem = fname[:-4] if fname.lower().endswith(".lvl") else fname
+    head, _, rest = stem.partition(" ")
+    number, title = (head, rest) if head.isdigit() and rest else (None, stem)
+    path = os.path.join(LEVELS_DIR, *level.split("/"))
+    try:
+        with open(path, encoding="utf-8", errors="replace") as f:
+            in_header = False
+            for line in f:
+                if "<LevelHeader>" in line:
+                    in_header = True
+                elif "</LevelHeader>" in line:
+                    break
+                elif in_header:
+                    m = re.match(r"\s*name\s*=\s*(.*?)\s*$", line)
+                    if m and m.group(1):
+                        title = m.group(1)
+                        break
+    except OSError:
+        pass
+    return f"{number}. {title}" if number else title
+
 def load_dump():
     with open(os.path.join(HERE, "tbw_ap_dump.json"), encoding="utf-8") as f:
         return json.load(f)
@@ -689,10 +715,14 @@ def build(d):
                  "requiredAbilities": list(m["halfRequiredAbilities"]),
                  "requiredAnyOf": list(m["halfRequiredAnyOf"])})
     # locations: confidence goals (linked to their mission + act for region logic)
+    # Named with the mission's in-game display name (as the Complete:/Halfway: locations are)
+    # and the room's level-card label rather than the raw folder/.lvl path -- the KEY keeps
+    # the raw path, so ids and GOAL_REQUIREMENTS keys are untouched.
     for i, g in enumerate(goals):
         folder = g["level"].split("/")[0]
         mis = folder_to_mission.get(folder)
-        nm = f"{g['level']} - {g['goalName']}" + (f" #{g['ordinal']}" if g["ordinal"] > 1 else "")
+        where = f"{mis['name'] if mis else folder} - {level_display_name(g['level'])}"
+        nm = f"{where} - {g['goalName']}" + (f" #{g['ordinal']}" if g["ordinal"] > 1 else "")
         extra = GOAL_REQUIREMENTS.get(f'{g["level"]}|{g["goalName"]}', {})
         add_loc("confidence_goal", i, f"Goal: {nm} [{disp(g['character'])}]",
                 f"goal:{g['level']}|{g['goalName']}|{g['ordinal']}",
@@ -818,6 +848,17 @@ def build(d):
         "locations": list(locations.values()),
     }
 
+def check_unique_names(data):
+    """AP requires item and location names to be unique per game; the ids are keyed by name
+    on the apworld side, so a collision would silently merge two checks."""
+    for kind in ("items", "locations"):
+        seen = {}
+        for rec in data[kind]:
+            if rec["name"] in seen:
+                raise SystemExit(f"duplicate {kind[:-1]} name {rec['name']!r}: "
+                                 f"{seen[rec['name']]} and {rec['key']}")
+            seen[rec["name"]] = rec["key"]
+
 def write_json(data):
     with open(os.path.join(HERE, "ap_data.json"), "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
@@ -940,6 +981,7 @@ def write_python(data):
 def main():
     d = load_dump()
     data = build(d)
+    check_unique_names(data)
     write_json(data); write_csharp(data); write_python(data)
     import collections
     ic = collections.Counter(i["category"] for i in data["items"])

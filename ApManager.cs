@@ -385,10 +385,21 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
             }
             if (slot.TryGetValue("start_character", out var sc)) _state.StartCharacter = sc?.ToString();
             if (slot.TryGetValue("start_mission", out var sm)) _state.StartMission = sm?.ToString();
+            // Optional checks the seed left out (see ApState.ExcludedLocations). Arrives as a
+            // Newtonsoft JArray (or a plain list for older deserializers).
+            if (slot.TryGetValue("excluded_location_ids", out var ex) && ex is System.Collections.IEnumerable exList)
+            {
+                _state.ExcludedLocations.Clear();
+                foreach (var v in exList)
+                {
+                    try { _state.ExcludedLocations.Add(System.Convert.ToInt64(v is Newtonsoft.Json.Linq.JValue jv ? jv.Value : v)); }
+                    catch (Exception) { /* ignore junk entries */ }
+                }
+            }
             string boosts = _state.ConfidenceBoostValues.Count > 0
                 ? string.Join(",", System.Linq.Enumerable.Select(_state.ConfidenceBoostValues, kv => kv.Key + "=" + kv.Value))
                 : $"flat {_state.DefaultConfidencePerBoost}";
-            MainMod.Logger.LogInfo($"[AP] slot_data: deathlink={_state.DeathLink} confBoostValues=[{boosts}] startChar={_state.StartCharacter} startMission={_state.StartMission}");
+            MainMod.Logger.LogInfo($"[AP] slot_data: deathlink={_state.DeathLink} confBoostValues=[{boosts}] startChar={_state.StartCharacter} startMission={_state.StartMission} excludedLocs={_state.ExcludedLocations.Count}");
         }
 
         // ----- AP confidence economy -----
@@ -662,6 +673,12 @@ namespace Tactical_Breach_Wizards_Archipelago_Mod
         private void Send(long? locId, string label)
         {
             if (!IsActive || locId == null) return;
+            if (_state.IsLocationExcluded(locId.Value))
+            {
+                // Not a check in this seed (yaml toggle) -- the server would drop it anyway.
+                MainMod.Logger.LogInfo($"[AP] Skipped {label}: not a check in this seed.");
+                return;
+            }
             if (!_sentChecks.Add(locId.Value)) return; // local dedup
             MainMod.Logger.LogInfo($"[AP] Check: {label} (loc {locId.Value})");
             _client.SendChecks(new[] { locId.Value });
